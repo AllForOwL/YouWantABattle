@@ -62,7 +62,7 @@ void ChoiseHeroScene::LoadMenuItems()
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Giant.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Octopus.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Paladin.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Warrior.png");
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Knight.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Wizard.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Yeti.png");
 	

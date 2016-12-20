@@ -10,6 +10,7 @@ class ManagerComponent;
 class InputComponent
 {
 public:
+	InputComponent(){};
 	virtual ~InputComponent() {};
 
 	virtual void Update(ManagerComponent& i_manager) = 0;

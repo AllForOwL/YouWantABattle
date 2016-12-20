@@ -8,7 +8,9 @@ USING_NS_CC;
 using std::string;
 using std::vector;
 
-class GraphicComponent;
+class Warrior;
+class Weapon;
+class Bullet;
 class InputComponent;
 
 class ManagerComponent
@@ -26,8 +28,14 @@ public:
 private:
 	int m_numberHero;
 
-	GraphicComponent*	m_hero;
-	GraphicComponent*	m_enemy;
+	Warrior*	m_hero;
+	Warrior*	m_enemy;
+
+	Weapon*	m_weaponHero;
+	Weapon*	m_weaponEnemy;
+
+	Bullet*	m_bulletHero;
+	Bullet*	m_bulletEnemy;
 
 	InputComponent*		m_inputHero;
 	InputComponent*		m_inputEnemy;

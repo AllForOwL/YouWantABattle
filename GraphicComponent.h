@@ -13,11 +13,8 @@ class ManagerComponent;
 class GraphicComponent : public cocos2d::Sprite
 {
 public:
-
-	virtual void Update(ManagerComponent& i_manager) = 0;
-
-private:
-	
+	GraphicComponent() {};
+	virtual ~GraphicComponent() {};
 };
 
 #endif 
