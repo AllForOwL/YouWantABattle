@@ -8,6 +8,8 @@ USING_NS_CC;
 using std::string;
 using std::vector;
 
+class ManagerComponent;
+
 class GameScene : public cocos2d::Layer
 {
 public:
@@ -17,11 +19,15 @@ public:
  
     CREATE_FUNC(GameScene);
 
+	void update(float dt);
+
 private:
 	Size	m_visiblSize;
 	Point	m_origin;
 
 	static int m_numberHero;
+
+	ManagerComponent*	m_manager;
 };
 
 #endif 

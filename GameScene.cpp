@@ -1,4 +1,7 @@
 #include "GameScene.h"
+#include "ManagerComponent.h"
+
+const float CNT_TIME_UPDATE_MANAGER = 0.01;
 
 int GameScene::m_numberHero = 0;
 
@@ -25,8 +28,14 @@ bool GameScene::init()
     m_visiblSize	= Director::getInstance()->getVisibleSize();
     m_origin		= Director::getInstance()->getVisibleOrigin();    
 
+	m_manager = new ManagerComponent(m_numberHero);
 
-
+	this->schedule(schedule_selector(GameScene::update), CNT_TIME_UPDATE_MANAGER);
 
     return true;
+}
+
+void GameScene::update(float dt)
+{
+	m_manager->Update();
 }
