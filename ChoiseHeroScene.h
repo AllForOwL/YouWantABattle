@@ -23,6 +23,9 @@ public:
 	void CreateSceneGame(int i_indexHero);
 
 private:
+	Size	m_visiblSize;
+	Point	m_origin;
+
 	Vector<MenuItem*>	m_menuItems;
 };
 
