@@ -22,8 +22,8 @@ public:
 	void LoadMenuItems();
 	void CreateSceneGame(int i_indexHero);
 
+	static Size	m_visiblSize;
 private:
-	Size	m_visiblSize;
 	Point	m_origin;
 
 	Vector<MenuItem*>	m_menuItems;

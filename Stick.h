@@ -1,5 +1,5 @@
-#ifndef __Stick_H__
-#define __Stick_H__
+#ifndef __STICK_H__
+#define __STICK_H__
 
 #include "cocos2d.h"
 

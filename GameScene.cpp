@@ -28,7 +28,7 @@ bool GameScene::init()
     m_visiblSize	= Director::getInstance()->getVisibleSize();
     m_origin		= Director::getInstance()->getVisibleOrigin();    
 
-	m_manager = new ManagerComponent(m_numberHero);
+	m_manager = new ManagerComponent(*this, m_numberHero);
 
 	this->schedule(schedule_selector(GameScene::update), CNT_TIME_UPDATE_MANAGER);
 

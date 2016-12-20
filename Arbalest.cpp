@@ -16,6 +16,11 @@ Arbalest::Arbalest(const Arbalest& i_Arbalest)
 
 }
 
+/*virtual*/ void Arbalest::Fire()
+{
+
+}
+
 Arbalest::~Arbalest()
 {
 

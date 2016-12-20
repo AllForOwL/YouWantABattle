@@ -10,18 +10,18 @@ using std::vector;
 
 class Warrior;
 class Weapon;
-class Bullet;
 class InputComponent;
+class GameScene;
 
 class ManagerComponent
 {
 public:
-	ManagerComponent(int i_indexHero);
+	ManagerComponent(GameScene& i_gameScene, int i_indexHero);
 	ManagerComponent(const ManagerComponent& i_manager);
 	~ManagerComponent();
 
-	void CreateHero();
-	void CreateEnemy();
+	void CreateHero(GameScene& i_gameScene);
+	void CreateEnemy(GameScene& i_gameScene);
 
 	void Update();
 

@@ -16,6 +16,11 @@ Horns::Horns(const Horns& i_Horns)
 
 }
 
+/*virtual*/ void Horns::Fire()
+{
+
+}
+
 Horns::~Horns()
 {
 

@@ -17,7 +17,7 @@ HeroInputComponent::HeroInputComponent(const HeroInputComponent& i_heroInput)
 
 /*virtual*/ bool HeroInputComponent::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-
+	return true;
 }
 
 /*virtual*/ void HeroInputComponent::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)

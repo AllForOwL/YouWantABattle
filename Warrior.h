@@ -10,8 +10,8 @@ class ManagerComponent;
 class Warrior : public GraphicComponent
 {
 public:
-	Warrior();
-	~Warrior();
+	Warrior() {};
+	~Warrior() {};
 
 	virtual void Update(ManagerComponent& i_manager) = 0;
 };

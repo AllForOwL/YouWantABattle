@@ -16,6 +16,11 @@ Cudgel::Cudgel(const Cudgel& i_Cudgel)
 
 }
 
+/*virtual*/ void Cudgel::Fire()
+{
+
+}
+
 Cudgel::~Cudgel()
 {
 

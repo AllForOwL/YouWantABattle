@@ -16,6 +16,11 @@ Tentacles::Tentacles(const Tentacles& i_Tentacles)
 
 }
 
+/*virtual*/ void Tentacles::Fire()
+{
+
+}
+
 Tentacles::~Tentacles()
 {
 

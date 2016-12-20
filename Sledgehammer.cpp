@@ -16,6 +16,11 @@ Sledgehammer::Sledgehammer(const Sledgehammer& i_Sledgehammer)
 
 }
 
+/*virtual*/ void Sledgehammer::Fire()
+{
+
+}
+
 Sledgehammer::~Sledgehammer()
 {
 

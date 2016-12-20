@@ -16,6 +16,11 @@ Stick::Stick(const Stick& i_Stick)
 
 }
 
+/*virtual*/ void Stick::Fire()
+{
+
+}
+
 Stick::~Stick()
 {
 

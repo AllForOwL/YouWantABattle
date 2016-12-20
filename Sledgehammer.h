@@ -1,9 +1,10 @@
-#ifndef __Sledgehammer_H__
-#define __Sledgehammer_H__
+#ifndef __SLEDGEHAMMER_H__
+#define __SLEDGEHAMMER_H__
 
 #include "cocos2d.h"
 
 #include "Weapon.h"
+#include "GraphicComponent.h"
 
 USING_NS_CC;
 

@@ -10,8 +10,8 @@ class ManagerComponent;
 class Weapon : public GraphicComponent
 {
 public:
-	Weapon();
-	~Weapon();
+	Weapon() {};
+	~Weapon() {};
 
 	virtual void Update(ManagerComponent& i_manager) = 0;
 	virtual void Fire() = 0;

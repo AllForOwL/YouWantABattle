@@ -1,5 +1,5 @@
-#ifndef __Saber_H__
-#define __Saber_H__
+#ifndef __SABER_H__
+#define __SABER_H__
 
 #include "cocos2d.h"
 

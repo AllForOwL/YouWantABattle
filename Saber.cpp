@@ -16,6 +16,11 @@ Saber::Saber(const Saber& i_Saber)
 
 }
 
+/*virtual*/ void Saber::Fire()
+{
+
+}
+
 Saber::~Saber()
 {
 

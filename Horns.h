@@ -1,5 +1,5 @@
-#ifndef __Horns_H__
-#define __Horns_H__
+#ifndef __HORNS_H__
+#define __HORNS_H__
 
 #include "cocos2d.h"
 

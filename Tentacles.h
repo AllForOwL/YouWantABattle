@@ -1,5 +1,5 @@
-#ifndef __Tentacles_H__
-#define __Tentacles_H__
+#ifndef __TENTACLES_H__
+#define __TENTACLES_H__
 
 #include "cocos2d.h"
 

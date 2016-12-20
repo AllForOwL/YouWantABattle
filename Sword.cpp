@@ -16,6 +16,11 @@ Sword::Sword(const Sword& i_Sword)
 
 }
 
+/*virtual*/ void Sword::Fire()
+{
+
+}
+
 Sword::~Sword()
 {
 

@@ -1,7 +1,8 @@
 #include "ChoiseHeroScene.h"
 #include "GameScene.h"
+#include "constants.h"
 
-const string PATH_TO_RESOURCES = "E:/programming/cocos/project/YouWantABattle/proj.win32/res";
+Size ChoiseHeroScene::m_visiblSize;
 
 Scene* ChoiseHeroScene::createScene()
 {

@@ -17,15 +17,15 @@ EnemyInputComponent::EnemyInputComponent(const EnemyInputComponent& i_heroInput)
 
 /*virtual*/ bool EnemyInputComponent::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-
+	return true;
 }
 
-/*virtual*/ bool EnemyInputComponent::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+/*virtual*/ void EnemyInputComponent::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 
 }
 
-/*virtual*/ bool EnemyInputComponent::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
+/*virtual*/ void EnemyInputComponent::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 
 }

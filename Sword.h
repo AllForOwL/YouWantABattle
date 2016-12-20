@@ -1,5 +1,5 @@
-#ifndef __Sword_H__
-#define __Sword_H__
+#ifndef __SWORD_H__
+#define __SWORD_H__
 
 #include "cocos2d.h"
 
