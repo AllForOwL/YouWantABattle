@@ -20,6 +20,7 @@ public:
 	~Saber();
 
 	virtual void Update(ManagerComponent& i_manager);
+	virtual void Fire();
 
 private:
 };

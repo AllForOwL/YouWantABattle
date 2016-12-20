@@ -34,9 +34,6 @@ private:
 	Weapon*	m_weaponHero;
 	Weapon*	m_weaponEnemy;
 
-	Bullet*	m_bulletHero;
-	Bullet*	m_bulletEnemy;
-
 	InputComponent*		m_inputHero;
 	InputComponent*		m_inputEnemy;
 };
