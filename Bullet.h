@@ -7,13 +7,25 @@
 
 class ManagerComponent;
 
+using std::string;
+
 class Bullet : public GraphicComponent
 {
 public:
 	Bullet();
+	Bullet(const Bullet& i_bullet);
+	Bullet(int i_type);
 	~Bullet();
 
-	virtual void Update(ManagerComponent& i_manager) = 0;
+	virtual void Update(ManagerComponent& i_manager);
+
+	void SetImage();
+	int GetDamage() const;
+
+private:
+	int m_type;
+	int m_speed;
+	int m_damage;
 };
 
 #endif 

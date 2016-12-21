@@ -25,8 +25,8 @@
 #include "ChoiseHeroScene.h"
 
 /*	Tasks on 21:12:2016
-		- split warrior(enemy and hero);
-		- add fire for all objects;
+		+ split warrior(enemy and hero);
+		+ add fire for all objects;
 		- add properties for all objects;
 
 */
@@ -62,29 +62,29 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 	{
 		case INDEX_BOAR:
 		{
-			m_hero = new Boar();			// бик
-			m_weaponHero = new Horns();		// роги
+			m_hero			= new Boar();			// бик
+			m_weaponHero	= new Horns();		// роги
 
 			break;
 		}
 		case INDEX_GIANT:
 		{
-			m_hero = new Giant();				// г≥гант
-			m_weaponHero = new Sledgehammer();	// кувалда
+			m_hero			= new Giant();				// г≥гант
+			m_weaponHero	= new Sledgehammer();	// кувалда
 
 			break;
 		}
 		case INDEX_OCTOPUS:
 		{
-			m_hero = new Octopus();				// восьмин≥г
-			m_weaponHero = new Tentacles();		// щупальц€
+			m_hero			= new Octopus();				// восьмин≥г
+			m_weaponHero	= new Tentacles();		// щупальц€
 
 			break;
 		}
 		case INDEX_YETI:
 		{
-			m_hero = new Yeti();				// йЇт≥
-			m_weaponHero = new Cudgel();		// дубина
+			m_hero			= new Yeti();				// йЇт≥
+			m_weaponHero	= new Cudgel();		// дубина
 
 			break;
 		}

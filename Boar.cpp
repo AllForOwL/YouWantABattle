@@ -2,6 +2,7 @@
 #include "ManagerComponent.h"
 #include "constants.h"
 #include "ChoiseHeroScene.h"
+#include "Weapon.h"
 
 Boar::Boar()
 {
@@ -17,7 +18,7 @@ Boar::Boar(const Boar& i_boar)
 
 /*virtual*/ void Boar::Update(ManagerComponent& i_manager)
 {
-
+	//i_manager.m_weaponHero->Fire();		// very cool !!! 
 }
 
 Boar::~Boar()

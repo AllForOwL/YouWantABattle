@@ -11,6 +11,7 @@ using std::string;
 using std::vector;
 
 class ManagerComponent;
+class Bullet;
 
 class Arbalest : public Weapon
 {

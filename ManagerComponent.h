@@ -25,7 +25,7 @@ public:
 
 	void Update();
 
-private:
+public:
 	int m_numberHero;
 
 	Warrior*	m_hero;

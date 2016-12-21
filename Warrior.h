@@ -14,6 +14,10 @@ public:
 	~Warrior() {};
 
 	virtual void Update(ManagerComponent& i_manager) = 0;
+
+protected:
+	int m_health;
+	int m_speed;
 };
 
 #endif 
