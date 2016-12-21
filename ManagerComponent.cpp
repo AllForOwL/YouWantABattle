@@ -27,8 +27,7 @@
 /*	Tasks on 21:12:2016
 		+ split warrior(enemy and hero);
 		+ add fire for all objects;
-		- add properties for all objects;
-
+		+ add properties for all objects;
 */
 
 const int INDEX_BOAR	= 0;

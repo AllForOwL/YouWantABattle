@@ -2,6 +2,17 @@
 #include "ManagerComponent.h"
 #include "constants.h"
 
+const int SPEED_COAL	= 5;
+const int SPEED_DIAMOND = 5;
+const int SPEED_ONYX	= 4;
+const int SPEED_ORE		= 6;
+const int SPEED_RUBY	= 5;
+
+const int DAMAGE_COAL		= 10;
+const int DAMAGE_DIAMOND	= 15;
+const int DAMAGE_ONYX		= 20;
+const int DAMAGE_ORE		= 20;
+const int DAMAGE_RUBY		= 40;
 
 Bullet::Bullet()
 {
