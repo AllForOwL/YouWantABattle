@@ -24,14 +24,23 @@
 #include "GameScene.h"
 #include "ChoiseHeroScene.h"
 
+/*	Tasks on 21:12:2016
+		- split warrior(enemy and hero);
+		- add fire for all objects;
+		- add properties for all objects;
+
+*/
+
 const int INDEX_BOAR	= 0;
-const int INDEX_BOWMAN	= 1;
-const int INDEX_GIANT	= 2;
-const int INDEX_KNIGHT	= 3;
-const int INDEX_OCTOPUS = 4;
-const int INDEX_PALADIN = 5;
-const int INDEX_WIZARD	= 6;
-const int INDEX_YETI	= 7;
+const int INDEX_GIANT	= 1;
+const int INDEX_OCTOPUS = 2;
+const int INDEX_YETI	= 3;
+
+const int INDEX_BOWMAN	= 0;
+const int INDEX_KNIGHT	= 1;
+const int INDEX_PALADIN = 2;
+const int INDEX_WIZARD	= 3;
+
 
 ManagerComponent::ManagerComponent(GameScene& i_gameScene, int i_indexHero) : m_numberHero(i_indexHero)
 {
@@ -58,13 +67,6 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 
 			break;
 		}
-		case INDEX_BOWMAN:
-		{
-			m_hero = new Bowman();			// стр≥лець
-			m_weaponHero = new Arbalest();	// лук
-
-			break;
-		}
 		case INDEX_GIANT:
 		{
 			m_hero = new Giant();				// г≥гант
@@ -72,31 +74,10 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 
 			break;
 		}
-		case INDEX_KNIGHT:
-		{
-			m_hero = new Knight();				// лицар
-			m_weaponHero = new Sword();			// меч
-
-			break;
-		}
 		case INDEX_OCTOPUS:
 		{
 			m_hero = new Octopus();				// восьмин≥г
 			m_weaponHero = new Tentacles();		// щупальц€
-
-			break;
-		}
-		case INDEX_PALADIN:
-		{
-			m_hero = new Paladin();				// палад≥н		
-			m_weaponHero = new Saber();			// шпага
-			
-			break;
-		}
-		case INDEX_WIZARD:
-		{
-			m_hero = new Wizard();				// чар≥вник
-			m_weaponHero = new Stick();			// шпага
 
 			break;
 		}
@@ -121,17 +102,10 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 {
 	srand(time(0));
-	m_numberHero = rand() % 7 + 0;
+	m_numberHero = rand() % 3 + 0;
 
 	switch (m_numberHero)
 	{
-		case INDEX_BOAR:
-		{
-			m_enemy			= new Boar();			// бик
-			m_weaponEnemy	= new Horns();		// роги
-
-			break;
-		}
 		case INDEX_BOWMAN:
 		{
 			m_enemy			= new Bowman();			// стр≥лець
@@ -139,24 +113,10 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 
 			break;
 		}
-		case INDEX_GIANT:
-		{
-			m_enemy			= new Giant();				// г≥гант
-			m_weaponEnemy	= new Sledgehammer();	// кувалда
-
-			break;
-		}
 		case INDEX_KNIGHT:
 		{
 			m_enemy			= new Knight();				// лицар
 			m_weaponEnemy	= new Sword();			// меч
-
-			break;
-		}
-		case INDEX_OCTOPUS:
-		{
-			m_enemy			= new Octopus();				// восьмин≥г
-			m_weaponEnemy	= new Tentacles();		// щупальц€
 
 			break;
 		}
@@ -171,13 +131,6 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 		{
 			m_enemy			= new Wizard();				// чар≥вник
 			m_weaponEnemy	= new Stick();			// шпага
-
-			break;
-		}
-		case INDEX_YETI:
-		{
-			m_enemy			= new Yeti();				// йЇт≥
-			m_weaponEnemy	= new Cudgel();		// дубина
 
 			break;
 		}
