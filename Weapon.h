@@ -4,9 +4,10 @@
 #include "cocos2d.h"
 
 #include "GraphicComponent.h"
+#include "Bullet.h"
+#include "ChoiseHeroScene.h"
 
 class ManagerComponent;
-class Bullet;
 
 class Weapon : public GraphicComponent
 {
@@ -30,6 +31,18 @@ public:
 
 	virtual void Update(ManagerComponent& i_manager) = 0;
 	virtual void Fire() = 0;
+
+	bool OutOfOrderWindow()
+	{
+		if (m_bullet->getPositionX() > ChoiseHeroScene::m_visiblSize.width)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 protected:
 	Bullet*	m_bullet;

@@ -21,6 +21,13 @@ Arbalest::Arbalest(const Arbalest& i_Arbalest)
 		{
 			m_bullet->Update(i_manager);				
 
+			if (OutOfOrderWindow())
+			{
+				delete m_bullet;
+			}
+
+			m_state = Weapon::State::NOTHING;
+
 			break;
 		}
 		case Weapon::NOTHING:

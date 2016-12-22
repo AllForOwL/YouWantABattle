@@ -25,8 +25,8 @@
 #include "HUDLayer.h"
 
 /*	Tasks on 22:12:2016
-		- flight bullet;
-		- destroy bullet;
+		+ flight bullet;
+		+ destroy bullet;
 		- cause damage;
 */
 
