@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 40;
+const int SPEED		= 4;
 const int STRENGTH	= 50;
 const int DEXTERITY = 45;
+const int HEIGHT_JUMP = 4;
 
 Octopus::Octopus()
 {
@@ -16,14 +17,10 @@ Octopus::Octopus()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Octopus::Octopus(const Octopus& i_Octopus)
-{
-
-}
-
-/*virtual*/ void Octopus::Update(ManagerComponent& i_manager)
 {
 
 }

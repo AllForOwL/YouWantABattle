@@ -18,16 +18,16 @@
 #include "Bullet.h"
 #include "Weapon.h"
 #include "Warrior.h"
-#include "HeroInputComponent.h"
 #include "EnemyInputComponent.h"
-#include "InputComponent.h"
+#include "HeroInputComponent.h"
 #include "GameScene.h"
 #include "ChoiseHeroScene.h"
+#include "HUDLayer.h"
 
-/*	Tasks on 21:12:2016
-		+ split warrior(enemy and hero);
-		+ add fire for all objects;
-		+ add properties for all objects;
+/*	Tasks on 22:12:2016
+		- flight bullet;
+		- destroy bullet;
+		- cause damage;
 */
 
 const int INDEX_BOAR	= 0;
@@ -45,6 +45,9 @@ ManagerComponent::ManagerComponent(GameScene& i_gameScene, int i_indexHero) : m_
 {
 	m_inputHero = new HeroInputComponent();
 	m_inputEnemy = new EnemyInputComponent();
+
+	m_HUDLayer = HUDLayer::create();
+	i_gameScene.addChild(m_HUDLayer);
 
 	CreateHero(i_gameScene);
 	CreateEnemy(i_gameScene);
@@ -137,7 +140,7 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 		break;
 	}
 
-	m_enemy->setPosition(ChoiseHeroScene::m_visiblSize.width - m_enemy->getBoundingBox().size.width,
+	m_enemy->setPosition(ChoiseHeroScene::m_visiblSize.width - m_enemy->getBoundingBox().size.width * 2,
 		m_enemy->getBoundingBox().size.height);
 
 	i_gameScene.addChild(m_enemy);
@@ -154,6 +157,8 @@ void ManagerComponent::Update()
 
 	m_inputHero->Update(*this);
 	m_inputEnemy->Update(*this);
+
+	m_HUDLayer->Update(*this);
 }
 
 ManagerComponent::~ManagerComponent()

@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 60;
+const int SPEED		= 6;
 const int STRENGTH	= 50;
 const int DEXTERITY = 85;
+const int HEIGHT_JUMP = 6;
 
 Knight::Knight()
 {
@@ -16,14 +17,10 @@ Knight::Knight()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Knight::Knight(const Knight& i_Knight)
-{
-
-}
-
-/*virtual*/ void Knight::Update(ManagerComponent& i_manager)
 {
 
 }

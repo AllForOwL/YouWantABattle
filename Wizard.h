@@ -19,7 +19,7 @@ public:
 	Wizard(const Wizard& i_Wizard);
 	~Wizard();
 
-	virtual void Update(ManagerComponent& i_manager);
+	//virtual void Update(ManagerComponent& i_manager);
 
 
 private:

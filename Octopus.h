@@ -19,7 +19,7 @@ public:
 	Octopus(const Octopus& i_Octopus);
 	~Octopus();
 
-	virtual void Update(ManagerComponent& i_manager);
+	//virtual void Update(ManagerComponent& i_manager);
 
 
 private:

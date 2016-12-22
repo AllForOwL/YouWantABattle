@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 40;
+const int SPEED		= 4;
 const int STRENGTH	= 60;
 const int DEXTERITY = 95;
+const int HEIGHT_JUMP = 4;
 
 Wizard::Wizard()
 {
@@ -16,16 +17,7 @@ Wizard::Wizard()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
-}
-
-Wizard::Wizard(const Wizard& i_Wizard)
-{
-
-}
-
-/*virtual*/ void Wizard::Update(ManagerComponent& i_manager)
-{
-
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Wizard::~Wizard()

@@ -4,9 +4,10 @@
 #include "ChoiseHeroScene.h"
 #include "Weapon.h"
 
-const int SPEED		= 20;
+const int SPEED		= 2;
 const int STRENGTH	= 80;
 const int DEXTERITY = 15;
+const int HEIGHT_JUMP = 2;
 
 Boar::Boar()
 {
@@ -17,16 +18,12 @@ Boar::Boar()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Boar::Boar(const Boar& i_boar)
 {
 
-}
-
-/*virtual*/ void Boar::Update(ManagerComponent& i_manager)
-{
-	//i_manager.m_weaponHero->Fire();		// very cool !!! 
 }
 
 Boar::~Boar()

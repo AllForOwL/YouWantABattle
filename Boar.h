@@ -19,7 +19,7 @@ public:
 	Boar(const Boar& i_boar);
 	~Boar();
 
-	virtual void Update(ManagerComponent& i_manager);
+	//virtual void Update(ManagerComponent& i_manager);
 
 private:
 };

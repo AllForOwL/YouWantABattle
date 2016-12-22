@@ -19,7 +19,7 @@ public:
 	Knight(const Knight& i_Knight);
 	~Knight();
 
-	virtual void Update(ManagerComponent& i_manager);
+	//virtual void Update(ManagerComponent& i_manager);
 
 
 private:

@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 10;
+const int SPEED		= 1;
 const int STRENGTH	= 90;
 const int DEXTERITY = 10;
+const int HEIGHT_JUMP = 1;
 
 Giant::Giant()
 {
@@ -16,14 +17,10 @@ Giant::Giant()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Giant::Giant(const Giant& i_Giant)
-{
-
-}
-
-/*virtual*/ void Giant::Update(ManagerComponent& i_manager)
 {
 
 }

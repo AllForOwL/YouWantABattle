@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 40;
+const int SPEED		= 4;
 const int STRENGTH	= 45;
 const int DEXTERITY = 80;
+const int HEIGHT_JUMP = 4;
 
 Bowman::Bowman()
 {
@@ -16,14 +17,10 @@ Bowman::Bowman()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Bowman::Bowman(const Bowman& i_Bowman)
-{
-
-}
-
-/*virtual*/ void Bowman::Update(ManagerComponent& i_manager)
 {
 
 }

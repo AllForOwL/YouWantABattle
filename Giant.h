@@ -19,7 +19,7 @@ public:
 	Giant(const Giant& i_Giant);
 	~Giant();
 
-	virtual void Update(ManagerComponent& i_manager);
+//	virtual void Update(ManagerComponent& i_manager);
 
 
 private:

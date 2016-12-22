@@ -19,7 +19,7 @@ public:
 	Bowman(const Bowman& i_bowman);
 	~Bowman();
 
-	virtual void Update(ManagerComponent& i_manager);
+	//virtual void Update(ManagerComponent& i_manager);
 
 
 private:

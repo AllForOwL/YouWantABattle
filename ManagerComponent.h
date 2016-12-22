@@ -10,8 +10,10 @@ using std::vector;
 
 class Warrior;
 class Weapon;
-class InputComponent;
+class HeroInputComponent;
+class EnemyInputComponent;
 class GameScene;
+class HUDLayer;
 
 class ManagerComponent
 {
@@ -34,8 +36,10 @@ public:
 	Weapon*	m_weaponHero;
 	Weapon*	m_weaponEnemy;
 
-	InputComponent*		m_inputHero;
-	InputComponent*		m_inputEnemy;
+	HeroInputComponent*		m_inputHero;
+	EnemyInputComponent*	m_inputEnemy;
+
+	HUDLayer*	m_HUDLayer;
 };
 
 #endif 

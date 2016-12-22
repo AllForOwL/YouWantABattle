@@ -19,7 +19,7 @@ public:
 	Paladin(const Paladin& i_Paladin);
 	~Paladin();
 
-	virtual void Update(ManagerComponent& i_manager);
+	//virtual void Update(ManagerComponent& i_manager);
 
 
 private:

@@ -19,6 +19,9 @@ public:
 	HeroInputComponent(const HeroInputComponent& i_heroInput);
 	~HeroInputComponent();
 
+	Point GetLocationTouch() const;
+	void SetZeroLocation();
+
 	virtual void Update(ManagerComponent& i_manager);
 
 	virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -26,6 +29,7 @@ public:
 	virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 
 private:
+
 };
 
 #endif 

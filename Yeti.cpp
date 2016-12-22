@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 20;
+const int SPEED		= 2;
 const int STRENGTH	= 90;
 const int DEXTERITY = 10;
+const int HEIGHT_JUMP = 2;
 
 Yeti::Yeti()
 {
@@ -16,14 +17,10 @@ Yeti::Yeti()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Yeti::Yeti(const Yeti& i_Yeti)
-{
-
-}
-
-/*virtual*/ void Yeti::Update(ManagerComponent& i_manager)
 {
 
 }

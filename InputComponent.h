@@ -18,6 +18,9 @@ public:
 	virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) = 0;
 	virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event) = 0;
 	virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event) = 0;
+
+protected:
+	Point m_locationTouch;
 };
 
 #endif

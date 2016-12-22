@@ -1,5 +1,7 @@
 #include "Bullet.h"
 #include "ManagerComponent.h"
+#include "Warrior.h"
+#include "HUDLayer.h"
 #include "constants.h"
 
 const int SPEED_COAL	= 5;
@@ -28,11 +30,22 @@ Bullet::Bullet(int i_type)
 {
 	m_type = i_type;
 	SetImage();
+	this->setPosition(Point::ZERO);
 }
 
 /*virtual*/ void Bullet::Update(ManagerComponent& i_manager)
 {
-	this->setPositionX(this->getPositionX() + m_speed);
+	if (this->getPosition() != Point::ZERO)
+	{
+		this->setPositionX(this->getPositionX() + m_speed);
+	}
+	else
+	{
+		Point _position = i_manager.m_hero->getPosition();
+		_position.x += i_manager.m_hero->getBoundingBox().size.width;
+		this->setPosition(_position);
+		i_manager.m_HUDLayer->addChild(this);
+	}
 }
 
 void Bullet::SetImage()

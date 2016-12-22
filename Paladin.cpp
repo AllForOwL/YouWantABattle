@@ -3,9 +3,10 @@
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 
-const int SPEED		= 50;
+const int SPEED		= 5;
 const int STRENGTH	= 60;
 const int DEXTERITY = 55;
+const int HEIGHT_JUMP = 5;
 
 Paladin::Paladin()
 {
@@ -16,14 +17,10 @@ Paladin::Paladin()
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
+	m_heightJump = HEIGHT_JUMP;
 }
 
 Paladin::Paladin(const Paladin& i_Paladin)
-{
-
-}
-
-/*virtual*/ void Paladin::Update(ManagerComponent& i_manager)
 {
 
 }

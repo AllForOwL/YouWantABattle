@@ -19,8 +19,7 @@ public:
 	Yeti(const Yeti& i_Yeti);
 	~Yeti();
 
-	virtual void Update(ManagerComponent& i_manager);
-
+	//virtual void Update(ManagerComponent& i_manager);
 
 private:
 };
