@@ -19,10 +19,11 @@ public:
 	Tentacles(const Tentacles& i_Tentacles);
 	~Tentacles();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

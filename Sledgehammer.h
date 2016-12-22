@@ -20,10 +20,11 @@ public:
 	Sledgehammer(const Sledgehammer& i_Sledgehammer);
 	~Sledgehammer();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

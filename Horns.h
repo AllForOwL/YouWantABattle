@@ -11,6 +11,7 @@ using std::string;
 using std::vector;
 
 class ManagerComponent;
+class GameScene;
 
 class Horns : public Weapon
 {
@@ -19,10 +20,11 @@ public:
 	Horns(const Horns& i_Horns);
 	~Horns();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

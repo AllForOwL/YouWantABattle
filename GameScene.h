@@ -9,6 +9,7 @@ using std::string;
 using std::vector;
 
 class ManagerComponent;
+class PhysicComponent;
 
 class GameScene : public cocos2d::Layer
 {
@@ -21,6 +22,13 @@ public:
 
 	void update(float dt);
 
+	cocos2d::PhysicsWorld* m_sceneWorld;
+
+	void SetPhysicsWorld(cocos2d::PhysicsWorld* world)
+	{
+		m_sceneWorld = world;
+	}
+
 private:
 	Size	m_visiblSize;
 	Point	m_origin;
@@ -28,6 +36,8 @@ private:
 	static int m_numberHero;
 
 	ManagerComponent*	m_manager;
+
+	PhysicComponent*	m_physicComponent;
 };
 
 #endif 

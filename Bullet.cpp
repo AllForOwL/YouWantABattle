@@ -2,6 +2,8 @@
 #include "ManagerComponent.h"
 #include "Warrior.h"
 #include "HUDLayer.h"
+#include "ChoiseHeroScene.h"
+#include "GameScene.h"
 #include "constants.h"
 
 const int SPEED_COAL	= 5;
@@ -31,9 +33,14 @@ Bullet::Bullet(int i_type)
 	m_type = i_type;
 	SetImage();
 	this->setPosition(Point::ZERO);
+
+	auto _physicBody = PhysicsBody::createBox(this->getContentSize());
+	_physicBody->setContactTestBitmask(true);
+	_physicBody->setCollisionBitmask(COLLISION_BITMASK_BULLET);
+	this->setPhysicsBody(_physicBody);
 }
 
-/*virtual*/ void Bullet::Update(ManagerComponent& i_manager)
+void Bullet::Update(ManagerComponent& i_manager, GameScene& i_gameScene)
 {
 	if (this->getPosition() != Point::ZERO)
 	{
@@ -44,7 +51,7 @@ Bullet::Bullet(int i_type)
 		Point _position = i_manager.m_hero->getPosition();
 		_position.x += i_manager.m_hero->getBoundingBox().size.width;
 		this->setPosition(_position);
-		i_manager.m_HUDLayer->addChild(this);
+		i_gameScene.addChild(this);
 	}
 }
 
@@ -96,6 +103,9 @@ void Bullet::SetImage()
 	default:
 		break;
 	}
+
+	this->setScale(ChoiseHeroScene::m_visiblSize.width / this->getContentSize().width / 10,
+		ChoiseHeroScene::m_visiblSize.height / this->getContentSize().height / 10);
 }
 
 int Bullet::GetDamage() const

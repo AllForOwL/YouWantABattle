@@ -9,6 +9,7 @@
 
 class ManagerComponent;
 
+
 class Weapon : public GraphicComponent
 {
 public:
@@ -16,6 +17,7 @@ public:
 	enum State
 	{
 		FIRE,
+		DESTROY_BULLET,
 		NOTHING
 	};
 
@@ -26,10 +28,10 @@ public:
 
 	~Weapon() 
 	{
-		//delete m_bullet;
+
 	};
 
-	virtual void Update(ManagerComponent& i_manager) = 0;
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene) = 0;
 	virtual void Fire() = 0;
 
 	bool OutOfOrderWindow()
@@ -42,6 +44,16 @@ public:
 		{
 			return false;
 		}
+	}
+
+	void SetState(State i_state)
+	{
+		m_state = i_state;
+	}
+
+	int GetDamage() const
+	{
+		return m_bullet->GetDamage();
 	}
 
 protected:

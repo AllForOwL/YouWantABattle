@@ -14,6 +14,7 @@ class HeroInputComponent;
 class EnemyInputComponent;
 class GameScene;
 class HUDLayer;
+class PhysicComponent;
 
 class ManagerComponent
 {
@@ -25,7 +26,7 @@ public:
 	void CreateHero(GameScene& i_gameScene);
 	void CreateEnemy(GameScene& i_gameScene);
 
-	void Update();
+	void Update(GameScene& i_gameScene);
 
 public:
 	int m_numberHero;

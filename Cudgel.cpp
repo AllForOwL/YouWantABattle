@@ -13,13 +13,27 @@ Cudgel::Cudgel(const Cudgel& i_Cudgel)
 
 }
 
-/*virtual*/ void Cudgel::Update(ManagerComponent& i_manager)
+/*virtual*/ void Cudgel::Update(ManagerComponent& i_manager, GameScene& i_gameScene)
 {
 	switch (m_state)
 	{
 		case Weapon::FIRE:
 		{
-			m_bullet->Update(i_manager);				
+			m_bullet->Update(i_manager, i_gameScene);				
+
+			if (OutOfOrderWindow())
+			{
+				m_state = Weapon::DESTROY_BULLET;
+			}
+
+			break;
+		}
+		case Weapon::DESTROY_BULLET:
+		{
+			m_bullet->getParent()->removeFromParentAndCleanup(true);
+			delete m_bullet;
+
+			m_state = Weapon::State::NOTHING;
 
 			break;
 		}

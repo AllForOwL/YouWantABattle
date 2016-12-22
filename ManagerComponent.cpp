@@ -23,11 +23,14 @@
 #include "GameScene.h"
 #include "ChoiseHeroScene.h"
 #include "HUDLayer.h"
+#include "constants.h"
+#include "PhysicComponent.h"
 
 /*	Tasks on 22:12:2016
 		+ flight bullet;
 		+ destroy bullet;
-		- cause damage;
+		- cause damage:
+			+ physiccomponent;
 */
 
 const int INDEX_BOAR	= 0;
@@ -97,6 +100,11 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 	m_hero->setPosition(m_hero->getBoundingBox().size.width, 
 		m_hero->getBoundingBox().size.height);
 
+	auto _physicBody = PhysicsBody::createBox(m_hero->getContentSize());
+	_physicBody->setContactTestBitmask(true);
+	_physicBody->setTag(TAG_HERO);
+	m_hero->setPhysicsBody(_physicBody);
+
 	i_gameScene.addChild(m_hero);
 	i_gameScene.addChild(m_weaponHero);
 }
@@ -143,17 +151,22 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 	m_enemy->setPosition(ChoiseHeroScene::m_visiblSize.width - m_enemy->getBoundingBox().size.width * 2,
 		m_enemy->getBoundingBox().size.height);
 
+	auto _physicBody = PhysicsBody::createBox(m_enemy->getContentSize());
+	_physicBody->setContactTestBitmask(true);
+	_physicBody->setTag(TAG_ENEMY);
+	m_enemy->setPhysicsBody(_physicBody);
+
 	i_gameScene.addChild(m_enemy);
 	i_gameScene.addChild(m_weaponEnemy);
 }
 
-void ManagerComponent::Update()
+void ManagerComponent::Update(GameScene& i_gameScene)
 {
 	m_hero->Update(*this);
 	m_enemy->Update(*this);
 
-	m_weaponHero->Update(*this);
-	m_weaponEnemy->Update(*this);
+	m_weaponHero->Update(*this, i_gameScene);
+	m_weaponEnemy->Update(*this, i_gameScene);
 
 	m_inputHero->Update(*this);
 	m_inputEnemy->Update(*this);

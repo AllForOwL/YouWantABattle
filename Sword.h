@@ -19,10 +19,11 @@ public:
 	Sword(const Sword& i_Sword);
 	~Sword();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

@@ -105,6 +105,11 @@ public:
 		m_state = i_state;
 	}
 
+	void SetDamage(int i_damage)
+	{
+		m_health -= i_damage;
+	}
+
 protected:
 	State	m_state;
 

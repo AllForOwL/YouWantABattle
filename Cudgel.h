@@ -19,10 +19,11 @@ public:
 	Cudgel(const Cudgel& i_Cudgel);
 	~Cudgel();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

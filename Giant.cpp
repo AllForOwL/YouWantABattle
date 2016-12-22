@@ -8,6 +8,7 @@ const int STRENGTH	= 90;
 const int DEXTERITY = 10;
 const int HEIGHT_JUMP = 1;
 
+
 Giant::Giant()
 {
 	this->initWithFile(PATH_TO_RESOURCES + "/MenuItems/Giant.png");

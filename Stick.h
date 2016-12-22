@@ -19,10 +19,11 @@ public:
 	Stick(const Stick& i_Stick);
 	~Stick();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

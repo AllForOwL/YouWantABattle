@@ -13,18 +13,24 @@ Arbalest::Arbalest(const Arbalest& i_Arbalest)
 
 }
 
-/*virtual*/ void Arbalest::Update(ManagerComponent& i_manager)
+/*virtual*/ void Arbalest::Update(ManagerComponent& i_manager, GameScene& i_gameScene)
 {
 	switch (m_state)
 	{
 		case Weapon::FIRE:
 		{
-			m_bullet->Update(i_manager);				
+			m_bullet->Update(i_manager, i_gameScene);				
 
 			if (OutOfOrderWindow())
 			{
-				delete m_bullet;
+				m_state = Weapon::DESTROY_BULLET;
 			}
+
+			break;
+		}
+		case Weapon::DESTROY_BULLET:
+		{
+			delete m_bullet;
 
 			m_state = Weapon::State::NOTHING;
 

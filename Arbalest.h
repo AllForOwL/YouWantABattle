@@ -20,10 +20,11 @@ public:
 	Arbalest(const Arbalest& i_Arbalest);
 	~Arbalest();
 
-	virtual void Update(ManagerComponent& i_manager);
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 	virtual void Fire();
 
 private:
+
 };
 
 #endif 

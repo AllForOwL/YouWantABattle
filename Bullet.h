@@ -6,6 +6,8 @@
 #include "GraphicComponent.h"
 
 class ManagerComponent;
+class GameScene;
+
 
 using std::string;
 
@@ -17,7 +19,7 @@ public:
 	Bullet(int i_type);
 	~Bullet();
 
-	virtual void Update(ManagerComponent& i_manager);
+	void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
 
 	void SetImage();
 	int GetDamage() const;
