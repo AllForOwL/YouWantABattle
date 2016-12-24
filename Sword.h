@@ -10,7 +10,9 @@ USING_NS_CC;
 using std::string;
 using std::vector;
 
+class Weapon;
 class ManagerComponent;
+class GameScene;
 
 class Sword : public Weapon
 {
@@ -19,8 +21,8 @@ public:
 	Sword(const Sword& i_Sword);
 	~Sword();
 
-	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
-	virtual void Fire();
+	//virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
+	virtual void CreateBullet(ManagerComponent& i_manager, GameScene& i_gameScene);
 
 private:
 

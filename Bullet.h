@@ -5,11 +5,9 @@
 
 #include "GraphicComponent.h"
 
-class ManagerComponent;
-class GameScene;
-
-
 using std::string;
+
+class GraphicComponent;
 
 class Bullet : public GraphicComponent
 {
@@ -19,7 +17,7 @@ public:
 	Bullet(int i_type);
 	~Bullet();
 
-	void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
+	void Update();
 
 	void SetImage();
 	int GetDamage() const;

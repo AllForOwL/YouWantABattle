@@ -10,7 +10,8 @@ USING_NS_CC;
 using std::string;
 using std::vector;
 
-class ManagerComponent;
+class Warrior;
+class GraphicComponent;
 
 class Bowman : public Warrior
 {

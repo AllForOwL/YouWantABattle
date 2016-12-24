@@ -15,6 +15,7 @@ class EnemyInputComponent;
 class GameScene;
 class HUDLayer;
 class PhysicComponent;
+class Bullet;
 
 class ManagerComponent
 {
@@ -39,6 +40,9 @@ public:
 
 	HeroInputComponent*		m_inputHero;
 	EnemyInputComponent*	m_inputEnemy;
+
+	Bullet*	m_bulletHero;
+	Bullet* m_bulletEnemy;
 
 	HUDLayer*	m_HUDLayer;
 };

@@ -10,8 +10,9 @@ USING_NS_CC;
 using std::string;
 using std::vector;
 
+class Weapon;
 class ManagerComponent;
-class Bullet;
+class GameScene;
 
 class Arbalest : public Weapon
 {
@@ -20,9 +21,8 @@ public:
 	Arbalest(const Arbalest& i_Arbalest);
 	~Arbalest();
 
-	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
-	virtual void Fire();
-
+	//virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
+	virtual void CreateBullet(ManagerComponent& i_manager, GameScene& i_gameScene);
 private:
 
 };

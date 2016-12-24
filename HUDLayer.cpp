@@ -4,6 +4,7 @@
 #include "Warrior.h"
 #include "HeroInputComponent.h"
 #include "constants.h"
+#include "Weapon.h"
 
 const int INDEX_PRESS_DOWN	= 0;
 const int INDEX_PRESS_UP	= 1;
@@ -103,7 +104,7 @@ bool HUDLayer::DetermineEvent(ManagerComponent& i_manager)
 	}
 	else if (i_manager.m_hero->getBoundingBox().containsPoint(_locationTouchHero))
 	{
-		i_manager.m_hero->SetState(Warrior::State::FIRE);
+		i_manager.m_weaponHero->SetState(Weapon::State::CREATE_BULLET);
 		return true;
 	}
 	return false;

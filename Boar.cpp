@@ -1,8 +1,6 @@
 #include "Boar.h"
-#include "ManagerComponent.h"
 #include "constants.h"
 #include "ChoiseHeroScene.h"
-#include "Weapon.h"
 
 const int SPEED		= 2;
 const int STRENGTH	= 80;

@@ -1,5 +1,4 @@
 #include "Paladin.h"
-#include "ManagerComponent.h"
 #include "constants.h"
 #include "ChoiseHeroScene.h"
 

@@ -5,9 +5,9 @@
 
 #include "GraphicComponent.h"
 #include "ChoiseHeroScene.h"
-#include "Bullet.h"
-#include "ManagerComponent.h"
-#include "Weapon.h"
+
+class GraphicComponent;
+class ManagerComponent;
 
 class Warrior : public GraphicComponent
 {
@@ -68,14 +68,6 @@ public:
 				{
 					this->setPositionX(this->getPositionX() + m_speed);
 				}
-
-				m_state = State::NOTHING;
-
-				break;
-			}
-			case Warrior::FIRE:
-			{
-				i_manager.m_weaponHero->Fire();
 
 				m_state = State::NOTHING;
 

@@ -9,7 +9,7 @@ class GraphicComponent : public cocos2d::Sprite
 {
 public:
 	GraphicComponent() {};
-	virtual ~GraphicComponent() {};
+	/*virtual*/ ~GraphicComponent() {};
 };
 
 #endif 

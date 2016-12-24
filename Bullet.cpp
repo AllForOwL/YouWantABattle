@@ -1,10 +1,6 @@
 #include "Bullet.h"
-#include "ManagerComponent.h"
-#include "Warrior.h"
-#include "HUDLayer.h"
-#include "ChoiseHeroScene.h"
-#include "GameScene.h"
 #include "constants.h"
+#include "ChoiseHeroScene.h"
 
 const int SPEED_COAL	= 5;
 const int SPEED_DIAMOND = 5;
@@ -36,23 +32,12 @@ Bullet::Bullet(int i_type)
 
 	auto _physicBody = PhysicsBody::createBox(this->getContentSize());
 	_physicBody->setContactTestBitmask(true);
-	_physicBody->setCollisionBitmask(COLLISION_BITMASK_BULLET);
 	this->setPhysicsBody(_physicBody);
 }
 
-void Bullet::Update(ManagerComponent& i_manager, GameScene& i_gameScene)
+void Bullet::Update()
 {
-	if (this->getPosition() != Point::ZERO)
-	{
-		this->setPositionX(this->getPositionX() + m_speed);
-	}
-	else
-	{
-		Point _position = i_manager.m_hero->getPosition();
-		_position.x += i_manager.m_hero->getBoundingBox().size.width;
-		this->setPosition(_position);
-		i_gameScene.addChild(this);
-	}
+	this->setPositionX(this->getPositionX() + m_speed);
 }
 
 void Bullet::SetImage()
