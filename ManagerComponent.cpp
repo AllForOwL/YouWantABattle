@@ -27,10 +27,9 @@
 #include "PhysicComponent.h"
 #include "Bullet.h"
 
-/*	Tasks on 22:12:2016
+/*	Tasks on 23:12:2016
 		- cause damage:
-			- destroy object bullet after colission;
-		- ;
+			+ destroy object bullet after colission;
 */
 
 const int INDEX_BOAR	= 0;

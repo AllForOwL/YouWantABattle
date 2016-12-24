@@ -15,7 +15,6 @@ void PhysicComponent::Update(ManagerComponent& i_manager)
 	{
 		case Wounded::HERO:
 		{
-			i_manager.m_hero->SetDamage(i_manager.m_weaponEnemy->GetDamage());
 			i_manager.m_weaponEnemy->SetState(Weapon::State::DESTROY_BULLET);
 
 			m_state = Wounded::NOTHING;
@@ -24,7 +23,6 @@ void PhysicComponent::Update(ManagerComponent& i_manager)
 		}
 		case Wounded::ENEMY:
 		{
-			i_manager.m_enemy->SetDamage(i_manager.m_weaponHero->GetDamage());
 			i_manager.m_weaponHero->SetState(Weapon::State::DESTROY_BULLET);
 
 			m_state = Wounded::NOTHING;

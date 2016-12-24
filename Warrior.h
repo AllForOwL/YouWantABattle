@@ -20,6 +20,7 @@ public:
 		MOVE_LEFT,
 		MOVE_RIGHT,
 		FIRE,
+		SET_DAMAGE,
 		NOTHING
 	};
 
@@ -73,6 +74,24 @@ public:
 
 				break;
 			}
+			case Warrior::SET_DAMAGE:
+			{
+				int _damage = 0;
+				if (this->getPhysicsBody()->getTag() == TAG_HERO)
+				{
+					_damage += i_manager.m_bulletEnemy->GetDamage() + i_manager.m_weaponEnemy->GetDamage();
+				}
+				else
+				{
+					_damage += i_manager.m_bulletHero->GetDamage() + i_manager.m_weaponHero->GetDamage();
+				}
+
+				m_health -= _damage;
+
+				m_state = Warrior::NOTHING;
+
+				break;
+			}
 			case Warrior::NOTHING:
 			{
 				if (!m_startPositionY)
@@ -102,11 +121,27 @@ public:
 		m_health -= i_damage;
 	}
 
+	//int GetDamage(ManagerComponent& i_manager)
+	//{
+	//	int _damage = this->m_damage;
+	//	if (this->getPhysicsBody()->getTag() == TAG_HERO)
+	//	{
+	//		_damage += i_manager.m_bulletHero->GetDamage() + i_manager.m_weaponHero->GetDamage();
+	//	}
+	//	else
+	//	{
+	//		_damage += i_manager.m_bulletEnemy->GetDamage() + i_manager.m_weaponEnemy->GetDamage();
+	//	}
+
+	//	return _damage;
+	//}
+
 protected:
 	State	m_state;
 
 	int m_startPositionY;
 
+	int m_damage;
 	int m_health;
 	int m_speed;
 	int m_strength;
