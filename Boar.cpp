@@ -51,6 +51,7 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	{
 		if (this->getPositionX() - _weight < m_positionBegin.x)
 		{
+			m_stateHitHorns = QuicklyHitHorns::MOVE_FORWARD;
 			return false;
 		}
 		else
@@ -62,9 +63,17 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	return true;
 }
 
+/*virtual*/ void Boar::DeleteImageSkills()
+{
+	for (int i = 0; i < m_vecSkills.size(); i++)
+	{
+		this->removeChild(m_vecSkills[i], true);
+	}
+	m_vecSkills.clear();
+}
+
 /*virtual*/ void Boar::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
-	
 	switch (i_numberSkill)
 	{
 		case Skills::QUICKLY_HIT_HORNS:
@@ -73,6 +82,7 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 			{
 				m_positionBegin = i_manager.m_hero->getPosition();
 				m_positionEnd = i_manager.m_enemy->getPosition();
+				m_positionEnd.x -= i_manager.m_enemy->getBoundingBox().size.width;
 			}
 			
 			if (!SkillQuicklyHitHorns(i_manager))

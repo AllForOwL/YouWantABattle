@@ -110,6 +110,7 @@ public:
 			{
 				if (DetermineSkill(i_manager))
 				{
+					DeleteImageSkills();
 					m_state = Warrior::EXECUTE_SKILLS;
 				}
 
@@ -141,6 +142,8 @@ public:
 	}
 
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
+
+	virtual void DeleteImageSkills() {};
 
 	virtual void ShowImageSkills(){};
 

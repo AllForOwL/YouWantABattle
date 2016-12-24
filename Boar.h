@@ -36,6 +36,8 @@ public:
 
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
 
+	virtual void DeleteImageSkills();
+
 	virtual void ShowImageSkills();
 	virtual bool DetermineSkill(ManagerComponent& i_manager);
 
