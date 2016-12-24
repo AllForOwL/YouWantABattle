@@ -1,5 +1,4 @@
 #include "Cudgel.h"
-#include "constants.h"
 #include "ManagerComponent.h"
 #include "Warrior.h"
 #include "Bullet.h"

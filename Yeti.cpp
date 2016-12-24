@@ -1,6 +1,5 @@
 #include "Yeti.h"
 #include "ManagerComponent.h"
-#include "constants.h"
 #include "ChoiseHeroScene.h"
 
 const int SPEED		= 2;

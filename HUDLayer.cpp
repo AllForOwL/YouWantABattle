@@ -3,7 +3,6 @@
 #include "ChoiseHeroScene.h"
 #include "Warrior.h"
 #include "HeroInputComponent.h"
-#include "constants.h"
 #include "Weapon.h"
 
 const int INDEX_PRESS_DOWN	= 0;

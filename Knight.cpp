@@ -1,5 +1,4 @@
 #include "Knight.h"
-#include "constants.h"
 #include "ChoiseHeroScene.h"
 
 const int SPEED		= 6;

@@ -106,7 +106,14 @@ public:
 
 	void SetState(State i_state)
 	{
-		m_state = i_state;
+		if (i_state == State::CREATE_BULLET && m_state == State::UPDATE_BULLET)
+		{
+			return;
+		}
+		else
+		{
+			m_state = i_state;
+		}
 	}
 
 	int GetDamage() const

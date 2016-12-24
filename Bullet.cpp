@@ -89,8 +89,8 @@ void Bullet::SetImage()
 		break;
 	}
 
-	this->setScale(ChoiseHeroScene::m_visiblSize.width / this->getContentSize().width / 10,
-		ChoiseHeroScene::m_visiblSize.height / this->getContentSize().height / 10);
+	this->setScale(ChoiseHeroScene::m_visiblSize.width / this->getContentSize().width / 20,
+		ChoiseHeroScene::m_visiblSize.height / this->getContentSize().height / 20);
 }
 
 int Bullet::GetDamage() const

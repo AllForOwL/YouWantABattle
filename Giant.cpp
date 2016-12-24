@@ -1,5 +1,4 @@
 #include "Giant.h"
-#include "constants.h"
 #include "ChoiseHeroScene.h"
 
 const int SPEED		= 1;

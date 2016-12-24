@@ -5,6 +5,9 @@
 
 #include "GraphicComponent.h"
 #include "ChoiseHeroScene.h"
+#include "Bullet.h"
+#include "Weapon.h"
+#include "constants.h"
 
 class GraphicComponent;
 class ManagerComponent;
@@ -79,11 +82,11 @@ public:
 				int _damage = 0;
 				if (this->getPhysicsBody()->getTag() == TAG_HERO)
 				{
-					_damage += i_manager.m_bulletEnemy->GetDamage() + i_manager.m_weaponEnemy->GetDamage();
+					_damage = i_manager.m_bulletEnemy->GetDamage() + i_manager.m_weaponEnemy->GetDamage();
 				}
 				else
 				{
-					_damage += i_manager.m_bulletHero->GetDamage() + i_manager.m_weaponHero->GetDamage();
+					_damage = i_manager.m_bulletHero->GetDamage() + i_manager.m_weaponHero->GetDamage();
 				}
 
 				m_health -= _damage;

@@ -2,7 +2,6 @@
 #include "ManagerComponent.h"
 #include "Warrior.h"
 #include "Weapon.h"
-#include "constants.h"
 
 PhysicComponent::PhysicComponent()
 {

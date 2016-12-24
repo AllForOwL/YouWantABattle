@@ -1,5 +1,4 @@
 #include "Octopus.h"
-#include "constants.h"
 #include "ChoiseHeroScene.h"
 
 const int SPEED		= 4;

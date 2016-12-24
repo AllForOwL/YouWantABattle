@@ -1,5 +1,4 @@
 #include "Paladin.h"
-#include "constants.h"
 #include "ChoiseHeroScene.h"
 
 const int SPEED		= 5;
