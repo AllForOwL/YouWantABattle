@@ -21,7 +21,7 @@ Horns::Horns(const Horns& i_Horns)
 
 /*virtual*/ void Horns::CreateBullet(ManagerComponent& i_manager, GameScene& i_gameScene)
 {
-	i_manager.m_bulletHero = new Bullet(BULLET_RUBY);
+	i_manager.m_bulletHero = new Bullet(BULLET_COAL);
 	Point _position = i_manager.m_hero->getPosition();
 	_position.x += i_manager.m_hero->getBoundingBox().size.width;
 	i_manager.m_bulletHero->setPosition(_position);

@@ -24,6 +24,9 @@ public:
 		MOVE_RIGHT,
 		FIRE,
 		SET_DAMAGE,
+		SHOW_IMAGE_SKILLS,
+		DETERMINE_SKILL,
+		EXECUTE_SKILLS,
 		NOTHING
 	};
 
@@ -95,6 +98,29 @@ public:
 
 				break;
 			}
+			case Warrior::SHOW_IMAGE_SKILLS:
+			{
+				ShowImageSkills();
+
+				m_state = Warrior::DETERMINE_SKILL;
+
+				break;
+			}
+			case Warrior::DETERMINE_SKILL:
+			{
+				if (DetermineSkill())
+				{
+					m_state = Warrior::EXECUTE_SKILLS;
+				}
+
+				break;
+			}
+			case Warrior::EXECUTE_SKILLS:
+			{
+				ExecuteSkill(i_manager, m_numberSkill); 
+
+				break;
+			}
 			case Warrior::NOTHING:
 			{
 				if (!m_startPositionY)
@@ -114,9 +140,25 @@ public:
 		}
 	}
 
+	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
+
+	virtual void ShowImageSkills();
+
+	virtual bool DetermineSkill();
+
+	void SetNumberSkill(int i_numberSkill)
+	{
+		m_numberSkill = i_numberSkill;
+	}
+
 	void SetState(State i_state)
 	{
 		m_state = i_state;
+	}
+
+	void SetSkill(int i_numberSkill)
+	{
+		m_numberSkill = i_numberSkill;
 	}
 
 	void SetDamage(int i_damage)
@@ -143,6 +185,8 @@ protected:
 	State	m_state;
 
 	int m_startPositionY;
+
+	int m_numberSkill;
 
 	int m_damage;
 	int m_health;

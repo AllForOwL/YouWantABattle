@@ -123,7 +123,6 @@ public:
 
 protected:
 	int m_damage;
-	//Bullet*	m_bullet;
 	State	m_state;
 };
 

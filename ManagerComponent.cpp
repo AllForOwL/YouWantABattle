@@ -29,7 +29,12 @@
 /*	Tasks on 23:12:2016
 		+ cause damage:
 			+ destroy object bullet after colission;
-		- ;
+		- add skills for warrior:
+			- click on hero and near him show available skills;
+				- boar		--- quickly hit horns;
+				- giant		--- jump and hit cudgel;
+				- octupus	--- hit tentacles;
+				- yeti		--- frost;
 */
 
 const int INDEX_BOAR	= 0;
