@@ -23,6 +23,11 @@ Knight::Knight(const Knight& i_Knight)
 
 }
 
+/*virtual*/ void Knight::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
 Knight::~Knight()
 {
 }

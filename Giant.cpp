@@ -24,6 +24,11 @@ Giant::Giant(const Giant& i_Giant)
 
 }
 
+/*virtual*/ void Giant::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
 Giant::~Giant()
 {
 }

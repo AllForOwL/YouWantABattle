@@ -19,6 +19,9 @@ public:
 	Wizard(const Wizard& i_Wizard);
 	~Wizard();
 
+	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
+
+
 	//virtual void Update(ManagerComponent& i_manager);
 
 

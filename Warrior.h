@@ -108,7 +108,7 @@ public:
 			}
 			case Warrior::DETERMINE_SKILL:
 			{
-				if (DetermineSkill())
+				if (DetermineSkill(i_manager))
 				{
 					m_state = Warrior::EXECUTE_SKILLS;
 				}
@@ -142,9 +142,9 @@ public:
 
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
 
-	virtual void ShowImageSkills();
+	virtual void ShowImageSkills(){};
 
-	virtual bool DetermineSkill();
+	virtual bool DetermineSkill(ManagerComponent& i_manager){ return false; };
 
 	void SetNumberSkill(int i_numberSkill)
 	{
@@ -165,21 +165,6 @@ public:
 	{
 		m_health -= i_damage;
 	}
-
-	//int GetDamage(ManagerComponent& i_manager)
-	//{
-	//	int _damage = this->m_damage;
-	//	if (this->getPhysicsBody()->getTag() == TAG_HERO)
-	//	{
-	//		_damage += i_manager.m_bulletHero->GetDamage() + i_manager.m_weaponHero->GetDamage();
-	//	}
-	//	else
-	//	{
-	//		_damage += i_manager.m_bulletEnemy->GetDamage() + i_manager.m_weaponEnemy->GetDamage();
-	//	}
-
-	//	return _damage;
-	//}
 
 protected:
 	State	m_state;

@@ -23,6 +23,11 @@ Octopus::Octopus(const Octopus& i_Octopus)
 
 }
 
+/*virtual*/ void Octopus::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
 Octopus::~Octopus()
 {
 }

@@ -1,11 +1,14 @@
 #include "Boar.h"
 #include "ChoiseHeroScene.h"
 #include "ManagerComponent.h"
+#include "HeroInputComponent.h"
 
 const int SPEED		= 2;
 const int STRENGTH	= 80;
 const int DEXTERITY = 15;
 const int HEIGHT_JUMP = 2;
+
+const int INDEX_SKILL_QUICKLY_HIT_HORNS = 0;
 
 Boar::Boar()
 {
@@ -35,26 +38,24 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	int _weight = this->m_speed * 2;
 	if (m_stateHitHorns == QuicklyHitHorns::MOVE_FORWARD)
 	{
-		if (this->getPositionX() + _weight > m_positionEnd.x)
+		if (this->getPositionX() + _weight >= m_positionEnd.x)
 		{
-			_weight = m_positionEnd.x - this->getPositionX();
+			m_stateHitHorns = QuicklyHitHorns::MOVE_BACK;
 		}
 		else
 		{
 			this->setPositionX(this->getPositionX() + _weight);
-			m_stateHitHorns = QuicklyHitHorns::MOVE_BACK;
 		}
 	}
 	else
 	{
 		if (this->getPositionX() - _weight < m_positionBegin.x)
 		{
-			_weight = this->getPositionX() - m_positionBegin.x;
+			return false;
 		}
 		else
 		{
 			this->setPositionX(this->getPositionX() - _weight);
-			return false;
 		}
 	}
 
@@ -63,7 +64,8 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 
 /*virtual*/ void Boar::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
-	switch (m_skill)
+	
+	switch (i_numberSkill)
 	{
 		case Skills::QUICKLY_HIT_HORNS:
 		{
@@ -85,16 +87,22 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	}
 }
 
-/*virtual*/ bool Boar::DetermineSkill()
+/*virtual*/ bool Boar::DetermineSkill(ManagerComponent& i_manager)
 {
-	// here has been determine touch on skill
+	if (m_vecSkills[INDEX_SKILL_QUICKLY_HIT_HORNS]->getBoundingBox().containsPoint(i_manager.m_inputHero->GetLocationTouch()))
+	{
+		SetSkill(INDEX_SKILL_QUICKLY_HIT_HORNS);
+		return true;
+	}
 
 	return false;
 }
 
 /*virtual*/ void Boar::ShowImageSkills()
 {
-	// here has been load image skills
+	m_vecSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/Boar/Horns.png"));
+	m_vecSkills[0]->setPosition(this->getPositionX(), this->getPositionY() + this->getBoundingBox().size.height);
+	this->addChild(m_vecSkills[0]);
 }
 
 Boar::~Boar()

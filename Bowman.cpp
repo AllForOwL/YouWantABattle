@@ -23,6 +23,12 @@ Bowman::Bowman(const Bowman& i_Bowman)
 
 }
 
+/*virtual*/ void Bowman::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
+
 Bowman::~Bowman()
 {
 }

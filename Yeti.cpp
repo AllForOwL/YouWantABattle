@@ -24,6 +24,11 @@ Yeti::Yeti(const Yeti& i_Yeti)
 
 }
 
+/*virtual*/ void Yeti::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
 Yeti::~Yeti()
 {
 }

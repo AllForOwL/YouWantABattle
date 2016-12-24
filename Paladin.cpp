@@ -23,6 +23,11 @@ Paladin::Paladin(const Paladin& i_Paladin)
 
 }
 
+/*virtual*/ void Paladin::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
 Paladin::~Paladin()
 {
 }

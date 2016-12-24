@@ -37,16 +37,18 @@ public:
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
 
 	virtual void ShowImageSkills();
+	virtual bool DetermineSkill(ManagerComponent& i_manager);
 
 	bool SkillQuicklyHitHorns(ManagerComponent& i_manager);
-
-	virtual bool DetermineSkill();
 
 private:
 	QuicklyHitHorns m_stateHitHorns;
 	Skills	m_skill;
 	Point m_positionBegin;
 	Point m_positionEnd;
+
+	vector<Sprite*> m_vecSkills;
+
 };
 
 #endif 

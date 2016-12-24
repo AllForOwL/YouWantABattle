@@ -18,6 +18,11 @@ Wizard::Wizard()
 	m_heightJump = HEIGHT_JUMP;
 }
 
+/*virtual*/ void Wizard::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+{
+
+}
+
 Wizard::~Wizard()
 {
 

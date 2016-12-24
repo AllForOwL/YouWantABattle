@@ -20,6 +20,8 @@ public:
 	Bowman(const Bowman& i_bowman);
 	~Bowman();
 
+	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
+
 	//virtual void Update(ManagerComponent& i_manager);
 
 
