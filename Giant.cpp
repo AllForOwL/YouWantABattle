@@ -68,7 +68,7 @@ bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
 		{
 			if (m_positionBegin == Point::ZERO && m_positionEnd == Point::ZERO)
 			{
-				m_positionBegin = i_manager.m_hero->getPosition();
+				m_positionBegin = this->getPosition();
 				m_positionEnd = i_manager.m_enemy->getPosition();
 				m_positionEnd.x -= i_manager.m_enemy->getBoundingBox().size.width;
 				m_distanceToEnemy = m_positionEnd.x - m_positionBegin.x;
@@ -76,7 +76,7 @@ bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
 			
 			if (!SkillJumpAndHit(i_manager))
 			{
-				i_manager.m_hero->SetState(Warrior::State::NOTHING);
+				this->SetState(Warrior::State::NOTHING);
 			}
 
 			break;

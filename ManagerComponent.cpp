@@ -27,7 +27,7 @@
 #include "Bullet.h"
 
 /*	Tasks on 25:12:2016
-		- giant		--- jump and hit cudgel;	// derivate way on second part
+		+ giant		--- jump and hit cudgel;	// derivate way on second part
 		- octupus	--- hit tentacles;			// line down on enemy
 		- yeti		--- frost;					// opacity or setcolor white
 */

@@ -80,14 +80,14 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 		{
 			if (m_positionBegin == Point::ZERO && m_positionEnd == Point::ZERO)
 			{
-				m_positionBegin = i_manager.m_hero->getPosition();
-				m_positionEnd = i_manager.m_enemy->getPosition();
+				m_positionBegin = this->getPosition();
+				m_positionEnd = this->getPosition();
 				m_positionEnd.x -= i_manager.m_enemy->getBoundingBox().size.width;
 			}
 			
 			if (!SkillQuicklyHitHorns(i_manager))
 			{
-				i_manager.m_hero->SetState(Warrior::State::NOTHING);
+				this->SetState(Warrior::State::NOTHING);
 			}
 
 			break;

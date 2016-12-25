@@ -52,7 +52,6 @@ private:
 	Point m_positionEnd;
 
 	vector<Sprite*> m_vecSkills;
-
 };
 
 #endif 
