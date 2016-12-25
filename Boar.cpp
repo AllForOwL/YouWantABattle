@@ -63,11 +63,11 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	return true;
 }
 
-/*virtual*/ void Boar::DeleteImageSkills()
+/*virtual*/ void Boar::DeleteImageSkills(GameScene& i_gameScene)
 {
 	for (int i = 0; i < m_vecSkills.size(); i++)
 	{
-		this->removeChild(m_vecSkills[i], true);
+		i_gameScene.removeChild(m_vecSkills[i], true);
 	}
 	m_vecSkills.clear();
 }
@@ -108,11 +108,14 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	return false;
 }
 
-/*virtual*/ void Boar::ShowImageSkills()
+/*virtual*/ void Boar::ShowImageSkills(GameScene& i_gameScene)
 {
 	m_vecSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/Boar/Horns.png"));
-	m_vecSkills[0]->setPosition(this->getPositionX(), this->getPositionY() + this->getBoundingBox().size.height);
-	this->addChild(m_vecSkills[0]);
+	m_vecSkills[0]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecSkills[0]->getContentSize().width / 15,
+		ChoiseHeroScene::m_visiblSize.height / m_vecSkills[0]->getContentSize().height / 15);
+
+	m_vecSkills[0]->setPosition(this->getPositionX(), this->getPositionY() + this->getContentSize().height);
+	i_gameScene.addChild(m_vecSkills[0]);
 }
 
 Boar::~Boar()

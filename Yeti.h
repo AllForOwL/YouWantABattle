@@ -20,9 +20,9 @@ public:
 	~Yeti();
 
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
-
-
-	//virtual void Update(ManagerComponent& i_manager);
+	virtual void DeleteImageSkills();
+	virtual void ShowImageSkills();
+	virtual bool DetermineSkills(ManagerComponent& i_manager);
 
 private:
 };

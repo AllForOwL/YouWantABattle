@@ -26,21 +26,16 @@
 #include "PhysicComponent.h"
 #include "Bullet.h"
 
-/*	Tasks on 23:12:2016
-		+ cause damage:
-			+ destroy object bullet after colission;
-		- add skills for warrior:
-			- click on hero and near him show available skills;
-				- boar		--- quickly hit horns;
-				- giant		--- jump and hit cudgel;
-				- octupus	--- hit tentacles;
-				- yeti		--- frost;
+/*	Tasks on 25:12:2016
+		- giant		--- jump and hit cudgel;	// derivate way on second part
+		- octupus	--- hit tentacles;			// line down on enemy
+		- yeti		--- frost;					// opacity or setcolor white
 */
 
 const int INDEX_BOAR	= 0;
 const int INDEX_GIANT	= 1;
 const int INDEX_OCTOPUS = 2;
-const int INDEX_YETI	= 3;
+const int INDEX_YETI	= 3; 
 
 const int INDEX_BOWMAN	= 0;
 const int INDEX_KNIGHT	= 1;
@@ -122,28 +117,28 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 	{
 		case INDEX_BOWMAN:
 		{
-			m_enemy			= new Bowman();			// стрілець
+			m_enemy			= new Bowman();		// стрілець
 			m_weaponEnemy	= new Arbalest();	// лук
 
 			break;
 		}
 		case INDEX_KNIGHT:
 		{
-			m_enemy			= new Knight();				// лицар
-			m_weaponEnemy	= new Sword();			// меч
+			m_enemy			= new Knight();		// лицар
+			m_weaponEnemy	= new Sword();		// меч
 
 			break;
 		}
 		case INDEX_PALADIN:
 		{
-			m_enemy			= new Paladin();				// паладін		
+			m_enemy			= new Paladin();		// паладін		
 			m_weaponEnemy	= new Saber();			// шпага
 			
 			break;
 		}
 		case INDEX_WIZARD:
 		{
-			m_enemy			= new Wizard();				// чарівник
+			m_enemy			= new Wizard();			// чарівник
 			m_weaponEnemy	= new Stick();			// шпага
 
 			break;
@@ -166,8 +161,8 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 
 void ManagerComponent::Update(GameScene& i_gameScene)
 {
-	m_hero->Update(*this);
-	m_enemy->Update(*this);
+	m_hero->Update(*this, i_gameScene);
+	m_enemy->Update(*this, i_gameScene);
 
 	m_weaponHero->Update(*this, i_gameScene);
 	m_weaponEnemy->Update(*this, i_gameScene);

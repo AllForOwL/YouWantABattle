@@ -28,6 +28,22 @@ Octopus::Octopus(const Octopus& i_Octopus)
 
 }
 
+/*virtual*/ void Octopus::DeleteImageSkills()
+{
+
+}
+
+/*virtual*/ void Octopus::ShowImageSkills()
+{
+
+}
+
+/*virtual*/ bool Octopus::DetermineSkills(ManagerComponent& i_manager)
+{
+
+	return false;
+}
+
 Octopus::~Octopus()
 {
 }

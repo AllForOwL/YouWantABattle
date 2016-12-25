@@ -8,6 +8,8 @@
 #include "Bullet.h"
 #include "Weapon.h"
 #include "constants.h"
+#include "HeroInputComponent.h"
+#include "GameScene.h"
 
 class GraphicComponent;
 class ManagerComponent;
@@ -38,7 +40,7 @@ public:
 	};
 	~Warrior() {};
 
-	virtual void Update(ManagerComponent& i_manager)
+	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene)
 	{
 		switch (m_state)
 		{
@@ -100,7 +102,8 @@ public:
 			}
 			case Warrior::SHOW_IMAGE_SKILLS:
 			{
-				ShowImageSkills();
+				ShowImageSkills(i_gameScene);
+				i_manager.m_inputHero->SetZeroLocation();
 
 				m_state = Warrior::DETERMINE_SKILL;
 
@@ -110,7 +113,7 @@ public:
 			{
 				if (DetermineSkill(i_manager))
 				{
-					DeleteImageSkills();
+					DeleteImageSkills(i_gameScene);
 					m_state = Warrior::EXECUTE_SKILLS;
 				}
 
@@ -143,9 +146,9 @@ public:
 
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
 
-	virtual void DeleteImageSkills() {};
+	virtual void DeleteImageSkills(GameScene& i_gameScene) {};
 
-	virtual void ShowImageSkills(){};
+	virtual void ShowImageSkills(GameScene& i_gameScene){};
 
 	virtual bool DetermineSkill(ManagerComponent& i_manager){ return false; };
 

@@ -29,6 +29,22 @@ Yeti::Yeti(const Yeti& i_Yeti)
 
 }
 
+/*virtual*/ void Yeti::DeleteImageSkills()
+{
+
+}
+
+/*virtual*/ void Yeti::ShowImageSkills()
+{
+
+}
+
+/*virtual*/ bool Yeti::DetermineSkills(ManagerComponent& i_manager)
+{
+
+	return false;
+}
+
 Yeti::~Yeti()
 {
 }

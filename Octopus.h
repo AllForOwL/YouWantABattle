@@ -19,11 +19,10 @@ public:
 	Octopus(const Octopus& i_Octopus);
 	~Octopus();
 
-	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
-
-
-	//virtual void Update(ManagerComponent& i_manager);
-
+	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);	
+	virtual void DeleteImageSkills();
+	virtual void ShowImageSkills();
+	virtual bool DetermineSkills(ManagerComponent& i_manager);
 
 private:
 };
