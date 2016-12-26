@@ -87,6 +87,12 @@ void AdventureGirl::LoadNameSprites()
 
 }
 
+/*virtual*/ void AdventureGirl::Shoot()
+{
+
+}
+
+
 bool AdventureGirl::SkillQuicklyHitRobot(ManagerComponent& i_manager)
 {
 	int _weight = this->m_speed * 2;

@@ -73,6 +73,26 @@ NinjaGirl::NinjaGirl(const NinjaGirl& i_NinjaGirl)
 
 }
 
+/*virtual*/ void NinjaGirl::Throw()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::ThrowJump()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::Attack()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::AttackJump()
+{
+
+}
+
 /*virtual*/ void NinjaGirl::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
 	switch (i_numberSkill)

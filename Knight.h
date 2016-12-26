@@ -19,7 +19,7 @@ public:
 	Knight(const Knight& i_Knight);
 	~Knight();
 
-	// function act hero
+	// function act hero clean
 	virtual void Run();
 	virtual void Melee();
 	virtual void Slide();
@@ -29,6 +29,10 @@ public:
 	virtual void MoveDown();
 	virtual void MoveRight();
 	virtual void MoveLeft();
+	// not clean
+	virtual void Attack();
+	virtual void AttackJump();
+	virtual void Walk();
 
 	// below function for skills
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);

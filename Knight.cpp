@@ -68,6 +68,21 @@ Knight::Knight(const Knight& i_Knight)
 
 }
 
+/*virtual*/ void Knight::Attack()
+{
+
+}
+
+/*virtual*/ void Knight::AttackJump()
+{
+
+}
+
+/*virtual*/ void Knight::Walk()
+{
+
+}
+
 /*virtual*/ void Knight::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
 

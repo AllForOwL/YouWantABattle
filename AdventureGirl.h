@@ -32,7 +32,7 @@ public:
 	AdventureGirl(const AdventureGirl& i_AdventureGirl);
 	~AdventureGirl();
 	
-	// function act hero
+	// function act hero clean
 	virtual void Run();
 	virtual void Melee();
 	virtual void Slide();
@@ -42,6 +42,8 @@ public:
 	virtual void MoveDown();
 	virtual void MoveRight();
 	virtual void MoveLeft();
+	// not clean
+	virtual void Shoot();
 
 	// load image
 	void LoadNameSprites();

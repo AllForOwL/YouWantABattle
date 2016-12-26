@@ -59,6 +59,21 @@ Robot::Robot(const Robot& i_Robot)
 
 }
 
+/*virtual*/ void Robot::MeleeJump()
+{
+
+}
+
+/*virtual*/ void Robot::ShootJump()
+{
+
+}
+
+/*virtual*/ void Robot::ShootRun()
+{
+
+}
+
 Robot::~Robot()
 {
 
