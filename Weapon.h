@@ -10,8 +10,8 @@
 #include "GameScene.h"
 
 const int DAMAGE_ARBALEST		= 20;
-const int DAMAGE_CUDGEL			= 20;
-const int DAMAGE_HORNS			= 20;
+const int DAMAGE_Crocodile			= 20;
+const int DAMAGE_Robot			= 20;
 const int DAMAGE_SABER			= 20;
 const int DAMAGE_SLEDGEHAAMMER	= 20;
 const int DAMAGE_STICK			= 20;

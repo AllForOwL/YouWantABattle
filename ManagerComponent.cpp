@@ -1,15 +1,15 @@
 #include "ManagerComponent.h"
-#include "Boar.h"
-#include "Bowman.h"
-#include "Giant.h"
+#include "AdventureGirl.h"
+#include "Boy.h"
+#include "NinjaGirl.h"
 #include "Knight.h"
 #include "Octopus.h"
 #include "Paladin.h"
 #include "Wizard.h"
 #include "Yeti.h"
 #include "Arbalest.h"
-#include "Cudgel.h"
-#include "Horns.h"
+#include "Crocodile.h"
+#include "Robot.h"
 #include "Saber.h"
 #include "Sledgehammer.h"
 #include "Stick.h"
@@ -27,18 +27,18 @@
 #include "Bullet.h"
 
 /*	Tasks on 25:12:2016
-		+ giant		--- jump and hit cudgel;	// derivate way on second part
+		+ NinjaGirl		--- jump and hit Crocodile;	// derivate way on second part
 		+- octupus	--- hit tentacles;			// line down on enemy
 			- delete tentacles;
-		- yeti		--- throw cudgel on enemy;					// opacity or setcolor white
+		- yeti		--- throw Crocodile on enemy;					// opacity or setcolor white
 */
 
-const int INDEX_BOAR	= 0;
-const int INDEX_GIANT	= 1;
+const int INDEX_AdventureGirl	= 0;
+const int INDEX_NinjaGirl	= 1;
 const int INDEX_OCTOPUS = 2;
 const int INDEX_YETI	= 3; 
 
-const int INDEX_BOWMAN	= 0;
+const int INDEX_Boy	= 0;
 const int INDEX_KNIGHT	= 1;
 const int INDEX_PALADIN = 2;
 const int INDEX_WIZARD	= 3;
@@ -65,16 +65,16 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 {
 	switch (m_numberHero)
 	{
-		case INDEX_BOAR:
+		case INDEX_AdventureGirl:
 		{
-			m_hero			= new Boar();			// бик
-			m_weaponHero	= new Horns();		// роги
+			m_hero			= new AdventureGirl();			// бик
+			m_weaponHero	= new Robot();		// роги
 
 			break;
 		}
-		case INDEX_GIANT:
+		case INDEX_NinjaGirl:
 		{
-			m_hero			= new Giant();				// гігант
+			m_hero			= new NinjaGirl();				// гігант
 			m_weaponHero	= new Sledgehammer();	// кувалда
 
 			break;
@@ -89,7 +89,7 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 		case INDEX_YETI:
 		{
 			m_hero			= new Yeti();				// йєті
-			m_weaponHero	= new Cudgel();		// дубина
+			m_weaponHero	= new Crocodile();		// дубина
 
 			break;
 		}
@@ -116,9 +116,9 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 
 	switch (m_numberHero)
 	{
-		case INDEX_BOWMAN:
+		case INDEX_Boy:
 		{
-			m_enemy			= new Bowman();		// стрілець
+			m_enemy			= new Boy();		// стрілець
 			m_weaponEnemy	= new Arbalest();	// лук
 
 			break;

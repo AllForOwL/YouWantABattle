@@ -1,5 +1,5 @@
-#ifndef __BOAR_H__
-#define __BOAR_H__
+#ifndef __AdventureGirl_H__
+#define __AdventureGirl_H__
 
 #include "cocos2d.h"
 
@@ -13,40 +13,58 @@ using std::vector;
 class Warrior;
 class ManagerComponent;
 
-class Boar : public Warrior
+class AdventureGirl : public Warrior
 {
 public:
 
 	enum Skills
 	{
-		QUICKLY_HIT_HORNS
+		QUICKLY_HIT_Robot
 	};
 
-	enum QuicklyHitHorns
+	enum QuicklyHitRobot
 	{
 		MOVE_FORWARD,
 		MOVE_BACK
 	};
 
-	Boar();
-	Boar(const Boar& i_boar);
-	~Boar();
+	AdventureGirl();
+	AdventureGirl(const AdventureGirl& i_AdventureGirl);
+	~AdventureGirl();
+	
+	// function act hero
+	virtual void Run();
+	virtual void Melee();
+	virtual void Slide();
+	virtual void Dead();
+	virtual void Idle();
+	virtual void MoveUp();
+	virtual void MoveDown();
+	virtual void MoveRight();
+	virtual void MoveLeft();
 
-//	virtual void Update(ManagerComponent& i_manager);
+	// load image
+	void LoadNameSprites();
 
+	// below function for skills
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
-
 	virtual void DeleteImageSkills(GameScene& i_gameScene);
-
 	virtual void ShowImageSkills(GameScene& i_gameScene);
 	virtual bool DetermineSkill(ManagerComponent& i_manager);
 
-
 	// here has been list all skills heroes
-	bool SkillQuicklyHitHorns(ManagerComponent& i_manager);
+	bool SkillQuicklyHitRobot(ManagerComponent& i_manager);
 
 private:
-	QuicklyHitHorns m_stateHitHorns;
+	vector<string>	m_vecIdle;
+	vector<string>	m_vecMelee;
+	vector<string>	m_vecShoot;
+	vector<string>	m_vecRun;
+	vector<string>	m_vecJump;
+	vector<string>	m_vecSlide;
+	vector<string>	m_vecDead;
+
+	QuicklyHitRobot m_stateHitRobot;
 	Skills	m_skill;
 	Point m_positionBegin;
 	Point m_positionEnd;

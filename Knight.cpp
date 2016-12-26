@@ -23,6 +23,51 @@ Knight::Knight(const Knight& i_Knight)
 
 }
 
+/*virtual*/ void Knight::Run()
+{
+
+}
+
+/*virtual*/ void Knight::Melee()
+{
+
+}
+
+/*virtual*/ void Knight::Slide()
+{
+
+}
+
+/*virtual*/ void Knight::Dead()
+{
+
+}
+
+/*virtual*/ void Knight::Idle()
+{
+
+}
+
+/*virtual*/ void Knight::MoveUp()
+{
+
+}
+
+/*virtual*/ void Knight::MoveDown()
+{
+
+}
+
+/*virtual*/ void Knight::MoveRight()
+{
+
+}
+
+/*virtual*/ void Knight::MoveLeft()
+{
+
+}
+
 /*virtual*/ void Knight::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
 

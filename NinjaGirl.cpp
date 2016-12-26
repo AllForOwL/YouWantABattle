@@ -1,4 +1,4 @@
-#include "Giant.h"
+#include "NinjaGirl.h"
 #include "ChoiseHeroScene.h"
 #include "HeroInputComponent.h"
 
@@ -9,9 +9,9 @@ const int HEIGHT_JUMP = 1;
 
 const int INDEX_JUMP_AND_HIT = 0;
 
-Giant::Giant()
+NinjaGirl::NinjaGirl()
 {
-	this->initWithFile(PATH_TO_RESOURCES + "/MenuItems/Giant.png");
+	this->initWithFile(PATH_TO_RESOURCES + "/MenuItems/NinjaGirl.png");
 	this->setScale(ChoiseHeroScene::m_visiblSize.width / this->getContentSize().width / SCALE_X,
 		ChoiseHeroScene::m_visiblSize.height / this->getContentSize().height / SCALE_Y);
 
@@ -23,44 +23,57 @@ Giant::Giant()
 	m_skillJumpAndHit = JumpAndHit::MOVE_FORWARD_UP;
 }
 
-Giant::Giant(const Giant& i_Giant)
+NinjaGirl::NinjaGirl(const NinjaGirl& i_NinjaGirl)
 {
 
 }
 
-bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
+/*virtual*/ void NinjaGirl::Run()
 {
-	if (m_skillJumpAndHit == JumpAndHit::MOVE_FORWARD_UP)
-	{
-		this->setPosition(this->getPositionX() + 1, this->getPositionY() + 1);
-		if (this->getPositionX() - m_positionBegin.x >= (m_distanceToEnemy / 2))
-		{
-			m_skillJumpAndHit = JumpAndHit::MOVE_FORWARD_DOWN;
-		}
-	}
-	else if (m_skillJumpAndHit == JumpAndHit::MOVE_FORWARD_DOWN)
-	{
-		this->setPosition(this->getPositionX() + 1, this->getPositionY() - 1);
-		if (this->getPositionY() == m_positionEnd.y)
-		{
-			m_skillJumpAndHit = JumpAndHit::MOVE_BACK;
-		}
-	}
-	else
-	{
-		this->setPositionX(this->getPositionX() - 1);
-		if (this->getPositionX() <= m_positionBegin.x)
-		{
-			m_skillJumpAndHit = JumpAndHit::MOVE_FORWARD_UP;
-			m_positionBegin = Point::ZERO;
-			m_positionEnd = Point::ZERO;
-			return false;
-		}
-	}
-	return true;
+
 }
 
-/*virtual*/ void Giant::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+/*virtual*/ void NinjaGirl::Melee()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::Slide()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::Dead()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::Idle()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::MoveUp()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::MoveDown()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::MoveRight()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::MoveLeft()
+{
+
+}
+
+/*virtual*/ void NinjaGirl::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
 	switch (i_numberSkill)
 	{
@@ -86,7 +99,7 @@ bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
 	}
 }
 
-/*virtual*/ void Giant::DeleteImageSkills(GameScene& i_gameScene)
+/*virtual*/ void NinjaGirl::DeleteImageSkills(GameScene& i_gameScene)
 {
 	for (int i = 0; i < m_vecImageSkills.size(); i++)
 	{
@@ -95,9 +108,9 @@ bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
 	m_vecImageSkills.clear();
 }
 
-/*virtual*/ void Giant::ShowImageSkills(GameScene& i_gameScene)
+/*virtual*/ void NinjaGirl::ShowImageSkills(GameScene& i_gameScene)
 {
-	m_vecImageSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/Giant/JumpAndHit.png"));
+	m_vecImageSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/NinjaGirl/JumpAndHit.png"));
 	m_vecImageSkills[INDEX_JUMP_AND_HIT]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecImageSkills[INDEX_JUMP_AND_HIT]->getContentSize().width / 15,
 		ChoiseHeroScene::m_visiblSize.height / m_vecImageSkills[INDEX_JUMP_AND_HIT]->getContentSize().height / 15);
 	m_vecImageSkills[INDEX_JUMP_AND_HIT]->setPosition(this->getPositionX(), this->getPositionY() + this->getContentSize().height);
@@ -105,7 +118,7 @@ bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
 	i_gameScene.addChild(m_vecImageSkills[0]);
 }
 
-/*virtual*/ bool Giant::DetermineSkill(ManagerComponent& i_manager)
+/*virtual*/ bool NinjaGirl::DetermineSkill(ManagerComponent& i_manager)
 {
 	if (m_vecImageSkills[INDEX_JUMP_AND_HIT]->getBoundingBox().containsPoint(i_manager.m_inputHero->GetLocationTouch()))
 	{
@@ -116,6 +129,6 @@ bool Giant::SkillJumpAndHit(ManagerComponent& i_manager)
 	return false;
 }
 
-Giant::~Giant()
+NinjaGirl::~NinjaGirl()
 {
 }

@@ -1,4 +1,4 @@
-#include "Boar.h"
+#include "AdventureGirl.h"
 #include "ChoiseHeroScene.h"
 #include "ManagerComponent.h"
 #include "HeroInputComponent.h"
@@ -8,39 +8,93 @@ const int STRENGTH	= 80;
 const int DEXTERITY = 15;
 const int HEIGHT_JUMP = 2;
 
-const int INDEX_SKILL_QUICKLY_HIT_HORNS = 0;
+const int INDEX_SKILL_QUICKLY_HIT_Robot = 0;
 
-Boar::Boar()
+AdventureGirl::AdventureGirl()
 {
-	this->initWithFile(PATH_TO_RESOURCES + "/MenuItems/Boar.png");
+	this->initWithFile(PATH_TO_RESOURCES + "/MenuItems/AdventureGirl.png");
 	this->setScale(ChoiseHeroScene::m_visiblSize.width / this->getContentSize().width / SCALE_X,
 		ChoiseHeroScene::m_visiblSize.height / this->getContentSize().height / SCALE_Y);
 
+	// main
 	m_speed		= SPEED;
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
 	m_heightJump = HEIGHT_JUMP;
 
+	// act
+
+
+	// skills
 	m_positionBegin = Point::ZERO;
 	m_positionEnd = Point::ZERO;
-
-	m_stateHitHorns = QuicklyHitHorns::MOVE_FORWARD;
+	m_stateHitRobot = QuicklyHitRobot::MOVE_FORWARD;
 
 }
 
-Boar::Boar(const Boar& i_boar)
+AdventureGirl::AdventureGirl(const AdventureGirl& i_AdventureGirl)
 {
 
 }
 
-bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
+void AdventureGirl::LoadNameSprites()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::Run()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::Melee()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::Slide()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::Dead()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::Idle()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::MoveUp()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::MoveDown()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::MoveRight()
+{
+
+}
+
+/*virtual*/ void AdventureGirl::MoveLeft()
+{
+
+}
+
+bool AdventureGirl::SkillQuicklyHitRobot(ManagerComponent& i_manager)
 {
 	int _weight = this->m_speed * 2;
-	if (m_stateHitHorns == QuicklyHitHorns::MOVE_FORWARD)
+	if (m_stateHitRobot == QuicklyHitRobot::MOVE_FORWARD)
 	{
 		if (this->getPositionX() + _weight >= m_positionEnd.x)
 		{
-			m_stateHitHorns = QuicklyHitHorns::MOVE_BACK;
+			m_stateHitRobot = QuicklyHitRobot::MOVE_BACK;
 		}
 		else
 		{
@@ -51,7 +105,7 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	{
 		if (this->getPositionX() - _weight < m_positionBegin.x)
 		{
-			m_stateHitHorns = QuicklyHitHorns::MOVE_FORWARD;
+			m_stateHitRobot = QuicklyHitRobot::MOVE_FORWARD;
 			return false;
 		}
 		else
@@ -63,7 +117,7 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	return true;
 }
 
-/*virtual*/ void Boar::DeleteImageSkills(GameScene& i_gameScene)
+/*virtual*/ void AdventureGirl::DeleteImageSkills(GameScene& i_gameScene)
 {
 	for (int i = 0; i < m_vecSkills.size(); i++)
 	{
@@ -72,11 +126,11 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	m_vecSkills.clear();
 }
 
-/*virtual*/ void Boar::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
+/*virtual*/ void AdventureGirl::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
 	switch (i_numberSkill)
 	{
-		case Skills::QUICKLY_HIT_HORNS:
+		case Skills::QUICKLY_HIT_Robot:
 		{
 			if (m_positionBegin == Point::ZERO && m_positionEnd == Point::ZERO)
 			{
@@ -85,7 +139,7 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 				m_positionEnd.x -= i_manager.m_enemy->getBoundingBox().size.width;
 			}
 			
-			if (!SkillQuicklyHitHorns(i_manager))
+			if (!SkillQuicklyHitRobot(i_manager))
 			{
 				this->SetState(Warrior::State::NOTHING);
 			}
@@ -97,20 +151,20 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	}
 }
 
-/*virtual*/ bool Boar::DetermineSkill(ManagerComponent& i_manager)
+/*virtual*/ bool AdventureGirl::DetermineSkill(ManagerComponent& i_manager)
 {
-	if (m_vecSkills[INDEX_SKILL_QUICKLY_HIT_HORNS]->getBoundingBox().containsPoint(i_manager.m_inputHero->GetLocationTouch()))
+	if (m_vecSkills[INDEX_SKILL_QUICKLY_HIT_Robot]->getBoundingBox().containsPoint(i_manager.m_inputHero->GetLocationTouch()))
 	{
-		SetSkill(INDEX_SKILL_QUICKLY_HIT_HORNS);
+		SetSkill(INDEX_SKILL_QUICKLY_HIT_Robot);
 		return true;
 	}
 
 	return false;
 }
 
-/*virtual*/ void Boar::ShowImageSkills(GameScene& i_gameScene)
+/*virtual*/ void AdventureGirl::ShowImageSkills(GameScene& i_gameScene)
 {
-	m_vecSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/Boar/Horns.png"));
+	m_vecSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/AdventureGirl/Robot.png"));
 	m_vecSkills[0]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecSkills[0]->getContentSize().width / 15,
 		ChoiseHeroScene::m_visiblSize.height / m_vecSkills[0]->getContentSize().height / 15);
 
@@ -118,7 +172,7 @@ bool Boar::SkillQuicklyHitHorns(ManagerComponent& i_manager)
 	i_gameScene.addChild(m_vecSkills[0]);
 }
 
-Boar::~Boar()
+AdventureGirl::~AdventureGirl()
 {
 
 }

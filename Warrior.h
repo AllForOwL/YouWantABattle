@@ -20,21 +20,36 @@ public:
 
 	enum State
 	{
-		JUMP,
-		CROUCH,
+		ATTACK,
+		ATTACK_JUMP,
+		DEAD,
+		DIZZY,
+		FIRE,
+		IDLE,
+		MELLE,
+		MELEE_JUMP,
+		MOVE_DOWN,
 		MOVE_LEFT,
 		MOVE_RIGHT,
-		FIRE,
+		MOVE_UP,
+		RUN,
+		RUN_SHOOT,
+		SHOOT,
+		SHOOT_JUMP,
+		SLIDE,
+		THROW,
+		THROW_JUMP,
+		WALK,
+
 		SET_DAMAGE,
 		SHOW_IMAGE_SKILLS,
 		DETERMINE_SKILL,
-		EXECUTE_SKILLS,
-		NOTHING
+		EXECUTE_SKILLS
 	};
 
 	Warrior() 
 	{
-		m_state = State::NOTHING;
+		m_state = State::IDLE;
 		m_health = 100;
 		m_startPositionY = 0;
 	};
@@ -44,43 +59,116 @@ public:
 	{
 		switch (m_state)
 		{
-			case Warrior::JUMP:
+			case Warrior::ATTACK:
 			{
-				this->setPositionY(this->getPositionY() + m_heightJump);
-
-				m_state = State::NOTHING;
 
 				break;
 			}
-			case Warrior::CROUCH:
+			case Warrior::ATTACK_JUMP:
 			{
-				this->setPositionY(this->getPositionY() - m_heightJump);
 
-				m_state = State::NOTHING;
+				break;
+			}
+			case Warrior::DEAD:
+			{
+
+				break;
+			}
+			case Warrior::DIZZY:
+			{
+
+				break;
+			}
+			case Warrior::FIRE:
+			{
+
+				break;
+			}
+			case Warrior::IDLE:
+			{
+
+				break;
+			}
+			case Warrior::MELLE:
+			{
+
+				break;
+			}
+			case Warrior::MELEE_JUMP:
+			{
+
+				break;
+			}
+				case Warrior::MOVE_DOWN:
+			{
+				MoveUp();
 
 				break;
 			}
 			case Warrior::MOVE_LEFT:
 			{
-				if (this->getPositionX() >= m_speed)
-				{
-					this->setPositionX(this->getPositionX() - m_speed);
-				}
-
-				m_state = State::NOTHING;
+				MoveDown();
 
 				break;
 			}
 			case Warrior::MOVE_RIGHT:
 			{
-				if (this->getPositionX() + m_speed < ChoiseHeroScene::m_visiblSize.width)
-				{
-					this->setPositionX(this->getPositionX() + m_speed);
-				}
-
-				m_state = State::NOTHING;
+				MoveLeft();
 
 				break;
+			}
+			case Warrior::MOVE_UP:
+			{
+				MoveRight();
+
+				break;
+			}
+			case Warrior::RUN:
+			{
+				
+
+				break;
+			}
+			case Warrior::RUN_SHOOT:
+			{
+
+				 break;
+			}
+			case Warrior::SHOOT:
+			{
+
+
+				 break;
+			}
+			case Warrior::SHOOT_JUMP:
+			{
+
+
+				 break;
+			}
+			case Warrior::SLIDE:
+			{
+
+
+				 break;
+			}
+			case Warrior::THROW:
+			{
+
+
+				 break;
+			}
+			case Warrior::THROW_JUMP:
+			{
+				
+
+				break;
+			}
+			case Warrior::WALK:
+			{
+
+
+				 break;
 			}
 			case Warrior::SET_DAMAGE:
 			{
@@ -95,8 +183,6 @@ public:
 				}
 
 				m_health -= _damage;
-
-				m_state = Warrior::NOTHING;
 
 				break;
 			}
@@ -125,48 +211,49 @@ public:
 
 				break;
 			}
-			case Warrior::NOTHING:
-			{
-				if (!m_startPositionY)
-				{
-					m_startPositionY = this->getPositionY();
-				}
-
-				if (this->getPositionY() != m_startPositionY)
-				{
-					this->setPositionY(m_startPositionY);
-				}
-
-				break;
-			}
 			default:
 				break;
 		}
 	}
 
+	// function act hero
+	virtual void Shoot();
+	virtual void Dizzy();
+	virtual void Attack();
+	virtual void AttackJump();
+	virtual void Walk();
+	virtual void Throw();
+	virtual void ThrowJump();
+	virtual void MeleeJump();
+	virtual void ShootJump();
+	virtual void RunShoot();
+	virtual void Run()			= 0;
+	virtual void Melee()		= 0;
+	virtual void Slide()		= 0;
+	virtual void Dead()			= 0;
+	virtual void Idle()			= 0;
+	virtual void MoveUp()		= 0;
+	virtual void MoveDown()		= 0;
+	virtual void MoveRight()	= 0;
+	virtual void MoveLeft()		= 0;
+
+	// function for skills
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
-
 	virtual void DeleteImageSkills(GameScene& i_gameScene) {};
-
 	virtual void ShowImageSkills(GameScene& i_gameScene){};
-
 	virtual bool DetermineSkill(ManagerComponent& i_manager){ return false; };
-
 	void SetNumberSkill(int i_numberSkill)
 	{
 		m_numberSkill = i_numberSkill;
 	}
-
 	void SetState(State i_state)
 	{
 		m_state = i_state;
 	}
-
 	void SetSkill(int i_numberSkill)
 	{
 		m_numberSkill = i_numberSkill;
 	}
-
 	void SetDamage(int i_damage)
 	{
 		m_health -= i_damage;

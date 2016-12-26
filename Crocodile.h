@@ -1,5 +1,5 @@
-#ifndef __CUDGEL_H__
-#define __CUDGEL_H__
+#ifndef __Crocodile_H__
+#define __Crocodile_H__
 
 #include "cocos2d.h"
 
@@ -13,15 +13,32 @@ using std::vector;
 class Weapon;
 class ManagerComponent;
 
-class Cudgel : public Weapon
+class Crocodile : public Weapon
 {
 public:
-	Cudgel();
-	Cudgel(const Cudgel& i_Cudgel);
-	~Cudgel();
+	Crocodile();
+	Crocodile(const Crocodile& i_Crocodile);
+	~Crocodile();
 
-//	virtual void Update(ManagerComponent& i_manager, GameScene& i_gameScene);
-	virtual void CreateBullet(ManagerComponent& i_manager, GameScene& i_gameScene);
+	// function act hero
+	virtual void Run();
+	virtual void Melee();
+	virtual void Slide();
+	virtual void Dead();
+	virtual void Idle();
+	virtual void MoveUp();
+	virtual void MoveDown();
+	virtual void MoveRight();
+	virtual void MoveLeft();
+
+	// below function for skills
+	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
+	virtual void DeleteImageSkills(GameScene& i_gameScene);
+	virtual void ShowImageSkills(GameScene& i_gameScene);
+	virtual bool DetermineSkill(ManagerComponent& i_manager);
+
+	// here has been list all skills heroes
+	bool SkillQuicklyHitRobot(ManagerComponent& i_manager);
 
 private:
 

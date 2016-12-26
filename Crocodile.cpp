@@ -1,34 +1,65 @@
-#include "Cudgel.h"
+#include "Crocodile.h"
 #include "ManagerComponent.h"
 #include "Warrior.h"
 #include "Bullet.h"
 #include "GameScene.h"
 
-Cudgel::Cudgel()
+Crocodile::Crocodile()
 {
-	m_damage = DAMAGE_CUDGEL;
+	m_damage = DAMAGE_Crocodile;
 }
 
-Cudgel::Cudgel(const Cudgel& i_Cudgel)
+Crocodile::Crocodile(const Crocodile& i_Crocodile)
 {
 
 }
 
-///*virtual*/ void Cudgel::Update(ManagerComponent& i_manager, GameScene& i_gameScene)
-//{
-//
-//}
-
-/*virtual*/ void Cudgel::CreateBullet(ManagerComponent& i_manager, GameScene& i_gameScene)
+/*virtual*/ void Crocodile::Run()
 {
-	i_manager.m_bulletHero = new Bullet(BULLET_RUBY);
-	Point _position = i_manager.m_hero->getPosition();
-	_position.x += i_manager.m_hero->getBoundingBox().size.width;
-	i_manager.m_bulletHero->setPosition(_position);
-	i_gameScene.addChild(i_manager.m_bulletHero);
+
 }
 
-Cudgel::~Cudgel()
+/*virtual*/ void Crocodile::Melee()
+{
+
+}
+
+/*virtual*/ void Crocodile::Slide()
+{
+
+}
+
+/*virtual*/ void Crocodile::Dead()
+{
+
+}
+
+/*virtual*/ void Crocodile::Idle()
+{
+
+}
+
+/*virtual*/ void Crocodile::MoveUp()
+{
+
+}
+
+/*virtual*/ void Crocodile::MoveDown()
+{
+
+}
+
+/*virtual*/ void Crocodile::MoveRight()
+{
+
+}
+
+/*virtual*/ void Crocodile::MoveLeft()
+{
+
+}
+
+Crocodile::~Crocodile()
 {
 
 }

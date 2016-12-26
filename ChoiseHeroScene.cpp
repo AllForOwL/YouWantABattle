@@ -58,8 +58,8 @@ void ChoiseHeroScene::CreateSceneGame(int i_indexHero)
 void ChoiseHeroScene::LoadMenuItems()
 {
 	vector<string> _filename;
-	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Boar.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Giant.png");
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/AdventureGirl.png");
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/NinjaGirl.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Octopus.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Yeti.png");
 	

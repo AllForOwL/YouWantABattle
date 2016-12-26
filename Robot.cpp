@@ -1,34 +1,65 @@
-#include "Horns.h"
+#include "Robot.h"
 #include "ManagerComponent.h"
 #include "Warrior.h"
 #include "Bullet.h"
 #include "GameScene.h"
 
-Horns::Horns()
+Robot::Robot()
 {
-	m_damage = DAMAGE_HORNS;
+	m_damage = DAMAGE_Robot;
 }
 
-Horns::Horns(const Horns& i_Horns)
+Robot::Robot(const Robot& i_Robot)
 {
 
 }
 
-///*virtual*/ void Horns::Update(ManagerComponent& i_manager, GameScene& i_gameScene)
-//{
-//
-//}
-
-/*virtual*/ void Horns::CreateBullet(ManagerComponent& i_manager, GameScene& i_gameScene)
+/*virtual*/ void Robot::Run()
 {
-	i_manager.m_bulletHero = new Bullet(BULLET_COAL);
-	Point _position = i_manager.m_hero->getPosition();
-	_position.x += i_manager.m_hero->getBoundingBox().size.width;
-	i_manager.m_bulletHero->setPosition(_position);
-	i_gameScene.addChild(i_manager.m_bulletHero);
+
 }
 
-Horns::~Horns()
+/*virtual*/ void Robot::Melee()
+{
+
+}
+
+/*virtual*/ void Robot::Slide()
+{
+
+}
+
+/*virtual*/ void Robot::Dead()
+{
+
+}
+
+/*virtual*/ void Robot::Idle()
+{
+
+}
+
+/*virtual*/ void Robot::MoveUp()
+{
+
+}
+
+/*virtual*/ void Robot::MoveDown()
+{
+
+}
+
+/*virtual*/ void Robot::MoveRight()
+{
+
+}
+
+/*virtual*/ void Robot::MoveLeft()
+{
+
+}
+
+Robot::~Robot()
 {
 
 }

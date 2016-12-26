@@ -103,7 +103,7 @@ bool HUDLayer::DetermineEvent(ManagerComponent& i_manager)
 	}
 	else if (i_manager.m_hero->getBoundingBox().containsPoint(_locationTouchHero))
 	{
-		i_manager.m_hero->SetState(Warrior::State::SHOW_IMAGE_SKILLS);
+		i_manager.m_hero->SetState(Warrior::State::FIRE);
 		return true;
 	}
 	return false;
