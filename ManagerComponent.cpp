@@ -28,8 +28,9 @@
 
 /*	Tasks on 25:12:2016
 		+ giant		--- jump and hit cudgel;	// derivate way on second part
-		- octupus	--- hit tentacles;			// line down on enemy
-		- yeti		--- frost;					// opacity or setcolor white
+		+- octupus	--- hit tentacles;			// line down on enemy
+			- delete tentacles;
+		- yeti		--- throw cudgel on enemy;					// opacity or setcolor white
 */
 
 const int INDEX_BOAR	= 0;
