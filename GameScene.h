@@ -29,6 +29,8 @@ public:
 		m_sceneWorld = world;
 	}
 
+	void SetSpeedUpdate(float i_newValueUpdate);
+
 private:
 	Size	m_visiblSize;
 	Point	m_origin;
@@ -38,6 +40,8 @@ private:
 	ManagerComponent*	m_manager;
 
 	PhysicComponent*	m_physicComponent;
+
+	float m_timeUpdate;
 };
 
 #endif 

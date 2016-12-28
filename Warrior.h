@@ -45,9 +45,16 @@ public:
 
 	Warrior() 
 	{
-		m_state = State::IDLE;
-		m_health = 100;
-		m_startPositionY = 0;
+		m_state				= State::IDLE;
+		m_health			= 100;
+		m_startPositionY	= 0;
+
+		m_indexRun	 = 0;
+		m_indexMelee = 0;
+		m_indexSlide = 0;
+		m_indexDead  = 0;
+		m_indexIdle  = 0;
+		m_indexJump  = 0;
 	};
 	~Warrior() {};
 

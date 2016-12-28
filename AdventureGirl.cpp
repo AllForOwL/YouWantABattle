@@ -26,10 +26,11 @@ AdventureGirl::AdventureGirl()
 
 
 	// skills
-	m_positionBegin = Point::ZERO;
-	m_positionEnd = Point::ZERO;
-	m_stateHitRobot = QuicklyHitRobot::MOVE_FORWARD;
+	m_positionBegin		= Point::ZERO;
+	m_positionEnd		= Point::ZERO;
+	m_stateHitRobot		= QuicklyHitRobot::MOVE_FORWARD;
 
+	LoadNameSprites();
 }
 
 AdventureGirl::AdventureGirl(const AdventureGirl& i_AdventureGirl)
@@ -46,29 +47,29 @@ void AdventureGirl::LoadNameSprites()
 {
 	for (int i = 1; i <= SPRITES_TEN; i++)
 	{
-		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Dead/Dead_" + std::to_string(i));
-		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Idle/Idle_" + std::to_string(i));
-		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Jump/Jump_" + std::to_string(i));
+		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Dead/Dead_" + std::to_string(i) + ".png");
+		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Idle/Idle_" + std::to_string(i) + ".png");
+		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Jump/Jump_" + std::to_string(i) + ".png");
 	}
 	for (int i = 1; i <= SPRITES_SEVEN; i++)
 	{
-		m_vecMelee.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Melee/Melee_" + std::to_string(i));
-		m_vecRun.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Run/Run_" + std::to_string(i));
+		m_vecMelee.push_back(PATH_TO_RESOURCES	+ "/Heroes/AdventureGirl/Melee/Melee_"	+ std::to_string(i) + ".png");
+		m_vecRun.push_back(PATH_TO_RESOURCES	+ "/Heroes/AdventureGirl/Run/Run_"		+ std::to_string(i) + ".png");
 	}
 	for (int i = 1; i <= SPRITES_FIVE; i++)
 	{
-		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Slide/Slide_" + std::to_string(i));
+		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Slide/Slide_" + std::to_string(i) + ".png");
 	}
 	for (int i = 1; i <= SPRITES_FIVE; i++)
 	{
-		m_vecShoot.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Shoot/Shoot_" + std::to_string(i));
+		m_vecShoot.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Shoot/Shoot_" + std::to_string(i) + ".png");
 	}
 }
 
-const int MAX_INDEX_RUN = 7;
+const int MAX_INDEX_RUN = 6;
 /*virtual*/ void AdventureGirl::Run()
 {
-	this->create(m_vecRun[m_indexRun]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecRun[m_indexRun]));
 	if (++m_indexRun > MAX_INDEX_RUN)
 	{
 		m_indexRun = 0;
@@ -78,7 +79,7 @@ const int MAX_INDEX_RUN = 7;
 const int MAX_INDEX_MELEE = 6;
 /*virtual*/ void AdventureGirl::Melee()
 {
-	this->create(m_vecMelee[m_indexMelee]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecMelee[m_indexMelee]));
 	if (++m_indexMelee > MAX_INDEX_MELEE)
 	{
 		m_indexMelee = 0;
@@ -88,8 +89,8 @@ const int MAX_INDEX_MELEE = 6;
 const int MAX_INDEX_SLIDE = 4;
 /*virtual*/ void AdventureGirl::Slide()
 {
-	this->create(m_vecSlide[m_indexSlide]);
-	if (++m_indexRun > MAX_INDEX_SLIDE)
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecSlide[m_indexSlide]));
+	if (++m_indexSlide > MAX_INDEX_SLIDE)
 	{
 		m_indexSlide = 0;
 	}
@@ -98,8 +99,8 @@ const int MAX_INDEX_SLIDE = 4;
 const int MAX_INDEX_DEAD = 9;
 /*virtual*/ void AdventureGirl::Dead()
 {
-	this->create(m_vecDead[m_indexDead]);
-	if (++m_indexRun > MAX_INDEX_DEAD)
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecDead[m_indexDead]));
+	if (++m_indexDead > MAX_INDEX_DEAD)
 	{
 		m_indexDead = 0;
 	}
@@ -108,8 +109,8 @@ const int MAX_INDEX_DEAD = 9;
 const int MAX_INDEX_IDLE = 9;
 /*virtual*/ void AdventureGirl::Idle()
 {
-	this->create(m_vecIdle[m_indexIdle]);
-	if (++m_indexRun > MAX_INDEX_IDLE)
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecIdle[m_indexIdle]));
+	if (++m_indexIdle > MAX_INDEX_IDLE)
 	{
 		m_indexIdle = 0;
 	}
@@ -118,8 +119,8 @@ const int MAX_INDEX_IDLE = 9;
 const int MAX_INDEX_JUMP = 9;
 /*virtual*/ void AdventureGirl::Jump()
 {
-	this->create(m_vecJump[m_indexJump]);
-	if (++m_indexRun > MAX_INDEX_JUMP)
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecJump[m_indexJump]));
+	if (++m_indexJump > MAX_INDEX_JUMP)
 	{
 		m_indexRun = 0;
 	}
@@ -128,8 +129,8 @@ const int MAX_INDEX_JUMP = 9;
 const int MAX_INDEX_SHOOT = 2;
 /*virtual*/ void AdventureGirl::Shoot()
 {
-	this->create(m_vecShoot[m_indexShoot]);
-	if (++m_indexRun > MAX_INDEX_SHOOT)
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecShoot[m_indexShoot]));
+	if (++m_indexShoot > MAX_INDEX_SHOOT)
 	{
 		m_indexShoot = 0;
 	}

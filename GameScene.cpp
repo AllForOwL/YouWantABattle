@@ -6,8 +6,6 @@
 
 #define SCENE_COLLISION_BITMASK		0x000004
 
-const float CNT_TIME_UPDATE_MANAGER = 0.01;
-
 int GameScene::m_numberHero = 0;
 
 Scene* GameScene::createScene(int i_numberHero)
@@ -59,7 +57,8 @@ bool GameScene::init()
 	_touchListener->onTouchBegan = CC_CALLBACK_2(HeroInputComponent::onTouchBegan, m_manager->m_inputHero);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(_touchListener, this);
 
-	this->schedule(schedule_selector(GameScene::update), CNT_TIME_UPDATE_MANAGER);
+	m_timeUpdate = 0.0001;
+	this->schedule(schedule_selector(GameScene::update), m_timeUpdate);
 
     return true;
 }
@@ -68,4 +67,9 @@ void GameScene::update(float dt)
 {
 	m_manager->Update(*this);
 	m_physicComponent->Update(*m_manager);
+}
+
+void GameScene::SetSpeedUpdate(float i_newValueUpdate)
+{
+	m_timeUpdate = i_newValueUpdate;
 }

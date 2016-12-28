@@ -16,6 +16,8 @@ Knight::Knight()
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
 	m_heightJump = HEIGHT_JUMP;
+
+	LoadNameSprites();
 }
 
 Knight::Knight(const Knight& i_Knight)
@@ -30,21 +32,21 @@ void Knight::LoadNameSprites()
 {
 	for (int i = 1; i <= SPRITES_TEN; i++)
 	{
-		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Dead/Dead_" + std::to_string(i));
-		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Idle/Idle_" + std::to_string(i));
-		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Jump/Jump_" + std::to_string(i));
-		m_vecMelee.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Melee/Melee_" + std::to_string(i));
-		m_vecRun.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Run/Run_" + std::to_string(i));
-		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Slide/Slide_" + std::to_string(i));
-		m_vecAttack.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Melee/Melee_" + std::to_string(i));
-		m_vecAttackJump.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Run/Run_" + std::to_string(i));
-		m_vecWalk.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Slide/Slide_" + std::to_string(i));
+		m_vecDead.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Dead/Dead_"	+ std::to_string(i) + ".png");
+		m_vecIdle.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Idle/Idle_"	+ std::to_string(i) + ".png");
+		m_vecJump.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Jump/Jump_"	+ std::to_string(i) + ".png");
+		m_vecMelee.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Melee/Melee_" + std::to_string(i) + ".png");
+		m_vecRun.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Run/Run_"		+ std::to_string(i) + ".png");
+		m_vecSlide.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Slide/Slide_" + std::to_string(i) + ".png");
+		m_vecAttack.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Melee/Melee_" + std::to_string(i) + ".png");
+		m_vecAttackJump.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Run/Run_"		+ std::to_string(i) + ".png");
+		m_vecWalk.push_back(PATH_TO_RESOURCES		+ "/Heroes/Knight/Slide/Slide_" + std::to_string(i) + ".png");
 	}
 }
 
 void Knight::Shoot()
 {
-	this->create(m_vecShoot[m_indexShoot]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecShoot[m_indexShoot]));
 	if (++m_indexShoot > MAX_INDEX)
 	{
 		m_indexShoot = 0;
@@ -53,7 +55,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Run()
 {
-	this->create(m_vecRun[m_indexRun]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecRun[m_indexRun]));
 	if (++m_indexRun > MAX_INDEX)
 	{
 		m_indexRun = 0;
@@ -62,7 +64,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Slide()
 {
-	this->create(m_vecSlide[m_indexSlide]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecSlide[m_indexSlide]));
 	if (++m_indexSlide > MAX_INDEX)
 	{
 		m_indexSlide = 0;
@@ -71,7 +73,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Dead()
 {
-	this->create(m_vecDead[m_indexDead]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecDead[m_indexDead]));
 	if (++m_indexDead > MAX_INDEX)
 	{
 		m_indexDead = 0;
@@ -80,7 +82,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Idle()
 {
-	this->create(m_vecIdle[m_indexIdle]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecIdle[m_indexIdle]));
 	if (++m_indexIdle > MAX_INDEX)
 	{
 		m_indexIdle = 0;
@@ -89,7 +91,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Jump()
 {
-	this->create(m_vecJump[m_indexJump]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecJump[m_indexJump]));
 	if (++m_indexJump > MAX_INDEX)
 	{
 		m_indexJump = 0;
@@ -98,7 +100,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Attack()
 {
-	this->create(m_vecAttack[m_indexAttack]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecAttack[m_indexAttack]));
 	if (++m_indexAttack > MAX_INDEX)
 	{
 		m_indexAttack = 0;
@@ -107,7 +109,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::AttackJump()
 {
-	this->create(m_vecAttackJump[m_indexAttackJump]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecAttackJump[m_indexAttackJump]));
 	if (++m_indexAttackJump > MAX_INDEX)
 	{
 		m_indexAttackJump = 0;
@@ -116,7 +118,7 @@ void Knight::Shoot()
 
 /*virtual*/ void Knight::Walk()
 {
-	this->create(m_vecWalk[m_indexWalk]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecWalk[m_indexWalk]));
 	if (++m_indexWalk > MAX_INDEX)
 	{
 		m_indexWalk = 0;

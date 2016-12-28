@@ -100,12 +100,12 @@ bool HUDLayer::DetermineEvent(ManagerComponent& i_manager)
 	{
 		i_manager.m_hero->SetState(Warrior::State::MOVE_RIGHT);
 		return true;
-	}
+	}*/
 	else if (i_manager.m_hero->getBoundingBox().containsPoint(_locationTouchHero))
 	{
-		i_manager.m_hero->SetState(Warrior::State::FIRE);
+		i_manager.m_hero->SetState(Warrior::State::RUN);
 		return true;
-	}*/
+	}
 	return false;
 }
 

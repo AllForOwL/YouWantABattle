@@ -16,6 +16,8 @@ Boy::Boy()
 	m_strength	= STRENGTH;
 	m_dexterity = DEXTERITY;
 	m_heightJump = HEIGHT_JUMP;
+
+	LoadNameSprites();
 }
 
 Boy::Boy(const Boy& i_Boy)
@@ -24,24 +26,24 @@ Boy::Boy(const Boy& i_Boy)
 }
 
 const int SPRITES_NINE = 9;
-const int MAX_INDEX = 8;
+const int MAX_INDEX = 9;
 
 void Boy::LoadNameSprites()
 {
 	for (int i = 0; i <= SPRITES_NINE; i++)
 	{
-		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Dead/Dead__00" + std::to_string(i));
-		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Idle/Idle__00" + std::to_string(i));
-		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Jump/Jump__00" + std::to_string(i));
-		m_vecMelee.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Melee/Melee__00" + std::to_string(i));
-		m_vecRun.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Run/Run__00" + std::to_string(i));
-		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Slide/Slide__00" + std::to_string(i));
+		m_vecDead.push_back(PATH_TO_RESOURCES	+ "/Heroes/Boy/Dead/Dead__00"	+ std::to_string(i) + ".png");
+		m_vecIdle.push_back(PATH_TO_RESOURCES	+ "/Heroes/Boy/Idle/Idle__00"	+ std::to_string(i) + ".png");
+		m_vecJump.push_back(PATH_TO_RESOURCES	+ "/Heroes/Boy/Jump/Jump__00"	+ std::to_string(i) + ".png");
+		m_vecMelee.push_back(PATH_TO_RESOURCES	+ "/Heroes/Boy/Melee/Melee__00" + std::to_string(i) + ".png");
+		m_vecRun.push_back(PATH_TO_RESOURCES	+ "/Heroes/Boy/Run/Run__00"		+ std::to_string(i) + ".png");
+		m_vecSlide.push_back(PATH_TO_RESOURCES	+ "/Heroes/Boy/Slide/Slide__00" + std::to_string(i) + ".png");
 	}
 }
 
 /*virtual*/ void Boy::Run()
 {
-	this->create(m_vecRun[m_indexRun]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecRun[m_indexRun]));
 	if (++m_indexRun > MAX_INDEX)
 	{
 		m_indexRun = 0;
@@ -50,7 +52,7 @@ void Boy::LoadNameSprites()
 
 /*virtual*/ void Boy::Melee()
 {
-	this->create(m_vecMelee[m_indexMelee]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecMelee[m_indexMelee]));
 	if (++m_indexMelee > MAX_INDEX)
 	{
 		m_indexMelee = 0;
@@ -59,7 +61,7 @@ void Boy::LoadNameSprites()
 
 /*virtual*/ void Boy::Slide()
 {
-	this->create(m_vecSlide[m_indexSlide]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecMelee[m_indexSlide]));
 	if (++m_indexSlide > MAX_INDEX)
 	{
 		m_indexSlide = 0;
@@ -68,7 +70,7 @@ void Boy::LoadNameSprites()
 
 /*virtual*/ void Boy::Dead()
 {
-	this->create(m_vecDead[m_indexDead]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecDead[m_indexDead]));
 	if (++m_indexDead > MAX_INDEX)
 	{
 		m_indexDead = 0;
@@ -77,7 +79,7 @@ void Boy::LoadNameSprites()
 
 /*virtual*/ void Boy::Idle()
 {
-	this->create(m_vecIdle[m_indexIdle]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecIdle[m_indexIdle]));
 	if (++m_indexIdle > MAX_INDEX)
 	{
 		m_indexIdle = 0;
@@ -86,7 +88,7 @@ void Boy::LoadNameSprites()
 
 /*virtual*/ void Boy::Jump()
 {
-	this->create(m_vecJump[m_indexJump]);
+	this->setTexture(CCTextureCache::sharedTextureCache()->addImage(m_vecJump[m_indexJump]));
 	if (++m_indexJump > MAX_INDEX)
 	{
 		m_indexJump = 0;

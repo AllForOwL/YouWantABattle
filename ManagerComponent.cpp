@@ -103,7 +103,7 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 {
 	srand(time(0));
-	m_numberHero = rand() % 3 + 0;
+	m_numberHero = /*rand() % 3 + */0;
 
 	switch (m_numberHero)
 	{

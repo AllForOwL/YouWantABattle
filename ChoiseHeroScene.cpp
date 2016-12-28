@@ -27,7 +27,7 @@ bool ChoiseHeroScene::init()
 
 	LoadMenuItems();
 	CCMenu* testMenu = CCMenu::createWithArray(m_menuItems);
-	testMenu->alignItemsInColumns(1, 1, 2, 1, 1);
+	testMenu->alignItemsHorizontally();
 	testMenu->setPosition(m_visiblSize.width / 2, m_visiblSize.height / 2);
 	this->addChild(testMenu);
 
@@ -68,7 +68,7 @@ void ChoiseHeroScene::LoadMenuItems()
 	for (int i = 0; i < _filename.size(); i++)
 	{
 		m_menuItems.pushBack(MenuItemImage::create(_filename[i], _filename[i], CC_CALLBACK_1(ChoiseHeroScene::menuChoiseHeroCallback, this)));
-		m_menuItems.at(i)->setScale(m_visiblSize.width / m_menuItems.at(i)->getContentSize().width / 6,
+		m_menuItems.at(i)->setScale(m_visiblSize.width / m_menuItems.at(i)->getContentSize().width / 8,
 			m_visiblSize.height / m_menuItems.at(i)->getContentSize().height / 6);
 	}
 }
