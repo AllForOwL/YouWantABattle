@@ -33,15 +33,15 @@ public:
 	~AdventureGirl();
 	
 	// function act hero clean
-	virtual void Run();
-	virtual void Melee();
-	virtual void Slide();
 	virtual void Dead();
 	virtual void Idle();
-	virtual void MoveUp();
+	virtual void Melee();
 	virtual void MoveDown();
-	virtual void MoveRight();
 	virtual void MoveLeft();
+	virtual void MoveRight();
+	virtual void MoveUp();
+	virtual void Run();
+	virtual void Slide();
 	// not clean
 	virtual void Shoot();
 
@@ -58,13 +58,13 @@ public:
 	bool SkillQuicklyHitRobot(ManagerComponent& i_manager);
 
 private:
+	vector<string>	m_vecDead;
 	vector<string>	m_vecIdle;
 	vector<string>	m_vecMelee;
 	vector<string>	m_vecShoot;
-	vector<string>	m_vecRun;
 	vector<string>	m_vecJump;
+	vector<string>	m_vecRun;
 	vector<string>	m_vecSlide;
-	vector<string>	m_vecDead;
 
 	QuicklyHitRobot m_stateHitRobot;
 	Skills	m_skill;

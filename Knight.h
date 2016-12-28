@@ -43,8 +43,18 @@ public:
 	// here has been list all skills heroes
 	bool SkillQuicklyHitRobot(ManagerComponent& i_manager);
 
+	void LoadNameSprites();
 
 private:
+	vector<string>	m_vecDead;
+	vector<string>	m_vecIdle;
+	vector<string>	m_vecMelee;
+	vector<string>	m_vecJump;
+	vector<string>	m_vecRun;
+	vector<string>	m_vecSlide;
+	vector<string>	m_vecAttack;
+	vector<string>	m_vecAttackJump;
+	vector<string>	m_vecWalk;
 };
 
 #endif 

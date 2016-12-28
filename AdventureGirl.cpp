@@ -37,9 +37,32 @@ AdventureGirl::AdventureGirl(const AdventureGirl& i_AdventureGirl)
 
 }
 
+const int SPRITES_TEN	= 10;
+const int SPRITES_SEVEN = 7;
+const int SPRITES_THREE = 3;
+const int SPRITES_FIVE	= 5;
+
 void AdventureGirl::LoadNameSprites()
 {
-
+	for (int i = 1; i <= SPRITES_TEN; i++)
+	{
+		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Dead/Dead_" + std::to_string(i));
+		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Idle/Idle_" + std::to_string(i));
+		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Jump/Jump_" + std::to_string(i));
+	}
+	for (int i = 1; i <= SPRITES_SEVEN; i++)
+	{
+		m_vecMelee.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Melee/Melee_" + std::to_string(i));
+		m_vecRun.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Run/Run_" + std::to_string(i));
+	}
+	for (int i = 1; i <= SPRITES_FIVE; i++)
+	{
+		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Slide/Slide_" + std::to_string(i));
+	}
+	for (int i = 1; i <= SPRITES_FIVE; i++)
+	{
+		m_vecShoot.push_back(PATH_TO_RESOURCES + "/Heroes/AdventureGirl/Shoot/Shoot_" + std::to_string(i));
+	}
 }
 
 /*virtual*/ void AdventureGirl::Run()

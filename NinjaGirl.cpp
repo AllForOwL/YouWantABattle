@@ -28,6 +28,25 @@ NinjaGirl::NinjaGirl(const NinjaGirl& i_NinjaGirl)
 
 }
 
+const int SPRITES_NINE = 9;
+
+void NinjaGirl::LoadNameSprites()
+{
+	for (int i = 0; i <= SPRITES_NINE; i++)
+	{
+		m_vecDead.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Dead/Dead__00"				+ std::to_string(i));
+		m_vecIdle.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Idle/Idle__00"				+ std::to_string(i));
+		m_vecJump.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Jump/Jump__00"				+ std::to_string(i));
+		m_vecMelee.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Melee/Melee__00"			+ std::to_string(i));
+		m_vecRun.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Run/Run__00"				+ std::to_string(i));
+		m_vecSlide.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Slide/Slide__00"			+ std::to_string(i));
+		m_vecThrow.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Throw/Throw__00"			+ std::to_string(i));
+		m_vecThrowJump.push_back(PATH_TO_RESOURCES	+ "/Heroes/NinjaGirl/ThrowJump/ThrowJump__00"	+ std::to_string(i));
+		m_vecAttack.push_back(PATH_TO_RESOURCES		+ "/Heroes/NinjaGirl/Attack/Attack__00"			+ std::to_string(i));
+		m_vecAttackJump.push_back(PATH_TO_RESOURCES + "/Heroes/NinjaGirl/AttackJump/AttackJump__00" + std::to_string(i));
+	}
+}
+
 /*virtual*/ void NinjaGirl::Run()
 {
 

@@ -23,6 +23,24 @@ Knight::Knight(const Knight& i_Knight)
 
 }
 
+const int SPRITES_TEN = 10;
+
+void Knight::LoadNameSprites()
+{
+	for (int i = 1; i <= SPRITES_TEN; i++)
+	{
+		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Dead/Dead_" + std::to_string(i));
+		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Idle/Idle_" + std::to_string(i));
+		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Jump/Jump_" + std::to_string(i));
+		m_vecMelee.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Melee/Melee_" + std::to_string(i));
+		m_vecRun.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Run/Run_" + std::to_string(i));
+		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Slide/Slide_" + std::to_string(i));
+		m_vecAttack.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Melee/Melee_" + std::to_string(i));
+		m_vecAttackJump.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Run/Run_" + std::to_string(i));
+		m_vecWalk.push_back(PATH_TO_RESOURCES + "/Heroes/Knight/Slide/Slide_" + std::to_string(i));
+	}
+}
+
 /*virtual*/ void Knight::Run()
 {
 

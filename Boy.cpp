@@ -23,6 +23,21 @@ Boy::Boy(const Boy& i_Boy)
 
 }
 
+const int SPRITES_NINE = 9;
+
+void Boy::LoadNameSprites()
+{
+	for (int i = 0; i <= SPRITES_NINE; i++)
+	{
+		m_vecDead.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Dead/Dead__00" + std::to_string(i));
+		m_vecIdle.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Idle/Idle__00" + std::to_string(i));
+		m_vecJump.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Jump/Jump__00" + std::to_string(i));
+		m_vecMelee.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Melee/Melee__00" + std::to_string(i));
+		m_vecRun.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Run/Run__00" + std::to_string(i));
+		m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/Boy/Slide/Slide__00" + std::to_string(i));
+	}
+}
+
 /*virtual*/ void Boy::Run()
 {
 
