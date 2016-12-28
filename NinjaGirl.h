@@ -40,10 +40,7 @@ public:
 	virtual void Slide();
 	virtual void Dead();
 	virtual void Idle();
-	virtual void MoveUp();
-	virtual void MoveDown();
-	virtual void MoveRight();
-	virtual void MoveLeft();
+	virtual void Jump();
 	// not clean
 	virtual void Throw();
 	virtual void ThrowJump();
@@ -62,16 +59,15 @@ public:
 	void LoadNameSprites();
 
 private:
-	vector<string>	m_vecDead;
-	vector<string>	m_vecIdle;
-	vector<string>	m_vecMelee;
-	vector<string>	m_vecJump;
-	vector<string>	m_vecRun;
-	vector<string>	m_vecSlide;
 	vector<string>	m_vecThrow;
 	vector<string>	m_vecThrowJump;
 	vector<string>	m_vecAttack;
 	vector<string>	m_vecAttackJump;
+	
+	int m_indexThrow;
+	int m_indexThrowJump;
+	int m_indexAttack;
+	int m_indexAttackJump;
 
 	JumpAndHit m_skillJumpAndHit;
 

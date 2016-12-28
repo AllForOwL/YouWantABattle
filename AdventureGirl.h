@@ -36,10 +36,7 @@ public:
 	virtual void Dead();
 	virtual void Idle();
 	virtual void Melee();
-	virtual void MoveDown();
-	virtual void MoveLeft();
-	virtual void MoveRight();
-	virtual void MoveUp();
+	virtual void Jump();
 	virtual void Run();
 	virtual void Slide();
 	// not clean
@@ -72,6 +69,9 @@ private:
 	Point m_positionEnd;
 
 	vector<Sprite*> m_vecSkills;
+
+	// indexes
+	int m_indexShoot;
 };
 
 #endif 

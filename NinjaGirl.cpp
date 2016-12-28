@@ -29,6 +29,7 @@ NinjaGirl::NinjaGirl(const NinjaGirl& i_NinjaGirl)
 }
 
 const int SPRITES_NINE = 9;
+const int MAX_INDEX = 8;
 
 void NinjaGirl::LoadNameSprites()
 {
@@ -49,67 +50,83 @@ void NinjaGirl::LoadNameSprites()
 
 /*virtual*/ void NinjaGirl::Run()
 {
-
-}
-
-/*virtual*/ void NinjaGirl::Melee()
-{
-
+	this->create(m_vecRun[m_indexRun]);
+	if (++m_indexRun > MAX_INDEX)
+	{
+		m_indexRun = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::Slide()
 {
-
+	this->create(m_vecSlide[m_indexSlide]);
+	if (++m_indexSlide > MAX_INDEX)
+	{
+		m_indexSlide = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::Dead()
 {
-
+	this->create(m_vecDead[m_indexDead]);
+	if (++m_indexDead > MAX_INDEX)
+	{
+		m_indexDead = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::Idle()
 {
-
+	this->create(m_vecIdle[m_indexIdle]);
+	if (++m_indexIdle > MAX_INDEX)
+	{
+		m_indexIdle = 0;
+	}
 }
 
-/*virtual*/ void NinjaGirl::MoveUp()
+/*virtual*/ void NinjaGirl::Jump()
 {
-
-}
-
-/*virtual*/ void NinjaGirl::MoveDown()
-{
-
-}
-
-/*virtual*/ void NinjaGirl::MoveRight()
-{
-
-}
-
-/*virtual*/ void NinjaGirl::MoveLeft()
-{
-
+	this->create(m_vecJump[m_indexJump]);
+	if (++m_indexJump > MAX_INDEX)
+	{
+		m_indexJump = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::Throw()
 {
-
+	this->create(m_vecThrow[m_indexThrow]);
+	if (++m_indexThrow > MAX_INDEX)
+	{
+		m_indexThrow = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::ThrowJump()
 {
-
+	this->create(m_vecThrowJump[m_indexThrowJump]);
+	if (++m_indexThrowJump > MAX_INDEX)
+	{
+		m_indexThrowJump = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::Attack()
 {
-
+	this->create(m_vecAttack[m_indexAttack]);
+	if (++m_indexAttack > MAX_INDEX)
+	{
+		m_indexAttack = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::AttackJump()
 {
-
+	this->create(m_vecAttackJump[m_indexAttackJump]);
+	if (++m_indexAttackJump > MAX_INDEX)
+	{
+		m_indexAttackJump = 0;
+	}
 }
 
 /*virtual*/ void NinjaGirl::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)

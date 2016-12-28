@@ -24,14 +24,10 @@ public:
 		ATTACK_JUMP,
 		DEAD,
 		DIZZY,
-		FIRE,
 		IDLE,
 		MELLE,
 		MELEE_JUMP,
-		MOVE_DOWN,
-		MOVE_LEFT,
-		MOVE_RIGHT,
-		MOVE_UP,
+		JUMP,
 		RUN,
 		RUN_SHOOT,
 		SHOOT,
@@ -61,112 +57,91 @@ public:
 		{
 			case Warrior::ATTACK:
 			{
+				Attack();
 
 				break;
 			}
 			case Warrior::ATTACK_JUMP:
 			{
+				AttackJump();
 
 				break;
 			}
 			case Warrior::DEAD:
 			{
+				Dead();
 
 				break;
 			}
 			case Warrior::DIZZY:
 			{
-
-				break;
-			}
-			case Warrior::FIRE:
-			{
-
+				Dizzy();
+				
 				break;
 			}
 			case Warrior::IDLE:
 			{
+				Idle();
 
 				break;
 			}
 			case Warrior::MELLE:
 			{
+				Melee();
 
 				break;
 			}
 			case Warrior::MELEE_JUMP:
 			{
-
-				break;
-			}
-				case Warrior::MOVE_DOWN:
-			{
-				MoveUp();
-
-				break;
-			}
-			case Warrior::MOVE_LEFT:
-			{
-				MoveDown();
-
-				break;
-			}
-			case Warrior::MOVE_RIGHT:
-			{
-				MoveLeft();
-
-				break;
-			}
-			case Warrior::MOVE_UP:
-			{
-				MoveRight();
+				MeleeJump();
 
 				break;
 			}
 			case Warrior::RUN:
 			{
-				
+				Run();
 
 				break;
 			}
 			case Warrior::RUN_SHOOT:
 			{
+				RunShoot();
 
-				 break;
+			    break;
 			}
 			case Warrior::SHOOT:
 			{
-
+				Shoot();
 
 				 break;
 			}
 			case Warrior::SHOOT_JUMP:
 			{
-
+				ShootJump();
 
 				 break;
 			}
 			case Warrior::SLIDE:
 			{
-
+				Slide();
 
 				 break;
 			}
 			case Warrior::THROW:
 			{
-
+				Throw();
 
 				 break;
 			}
 			case Warrior::THROW_JUMP:
 			{
-				
+				ThrowJump();
 
 				break;
 			}
 			case Warrior::WALK:
 			{
-
+				Walk();
 
 				 break;
 			}
@@ -227,15 +202,12 @@ public:
 	virtual void MeleeJump();
 	virtual void ShootJump();
 	virtual void RunShoot();
-	virtual void Run()			= 0;
-	virtual void Melee()		= 0;
-	virtual void Slide()		= 0;
-	virtual void Dead()			= 0;
-	virtual void Idle()			= 0;
-	virtual void MoveUp()		= 0;
-	virtual void MoveDown()		= 0;
-	virtual void MoveRight()	= 0;
-	virtual void MoveLeft()		= 0;
+	virtual void Run()		= 0;
+	virtual void Melee()	= 0;
+	virtual void Slide()	= 0;
+	virtual void Dead()		= 0;
+	virtual void Idle()		= 0;
+	virtual void Jump()		= 0;
 
 	// function for skills
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
@@ -260,6 +232,20 @@ public:
 	}
 
 protected:
+	vector<string>	m_vecDead;
+	vector<string>	m_vecIdle;
+	vector<string>	m_vecMelee;
+	vector<string>	m_vecJump;
+	vector<string>	m_vecRun;
+	vector<string>	m_vecSlide;
+
+	int	m_indexRun;
+	int m_indexMelee;
+	int m_indexSlide;
+	int m_indexDead;
+	int m_indexIdle;
+	int m_indexJump;
+	
 	State	m_state;
 
 	int m_startPositionY;

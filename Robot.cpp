@@ -49,64 +49,94 @@ void Robot::LoadNameSprites()
 	}
 }
 
+const int MAX_INDEX_RUN = 7;
 /*virtual*/ void Robot::Run()
 {
-
+	this->create(m_vecRun[m_indexRun]);
+	if (++m_indexRun > MAX_INDEX_RUN)
+	{
+		m_indexRun = 0;
+	}
 }
 
-/*virtual*/ void Robot::Melee()
-{
-
-}
-
+const int MAX_INDEX_SLIDE = 9;
 /*virtual*/ void Robot::Slide()
 {
-
+	this->create(m_vecSlide[m_indexSlide]);
+	if (++m_indexSlide > MAX_INDEX_SLIDE)
+	{
+		m_indexSlide = 0;
+	}
 }
 
+const int MAX_INDEX_DEAD = 9;
 /*virtual*/ void Robot::Dead()
 {
-
+	this->create(m_vecDead[m_indexDead]);
+	if (++m_indexDead > MAX_INDEX_DEAD)
+	{
+		m_indexDead = 0;
+	}
 }
 
+const int MAX_INDEX_IDLE = 9;
 /*virtual*/ void Robot::Idle()
 {
-
+	this->create(m_vecIdle[m_indexIdle]);
+	if (++m_indexIdle > MAX_INDEX_IDLE)
+	{
+		m_indexIdle = 0;
+	}
 }
 
-/*virtual*/ void Robot::MoveUp()
+const int MAX_INDEX_JUMP = 9;
+/*virtual*/ void Robot::Jump()
 {
-
+	this->create(m_vecJump[m_indexJump]);
+	if (++m_indexJump > MAX_INDEX_JUMP)
+	{
+		m_indexJump = 0;
+	}
 }
 
-/*virtual*/ void Robot::MoveDown()
-{
-
-}
-
-/*virtual*/ void Robot::MoveRight()
-{
-
-}
-
-/*virtual*/ void Robot::MoveLeft()
-{
-
-}
-
+const int MAX_INDEX_MELEE_JUMP = 7;
 /*virtual*/ void Robot::MeleeJump()
 {
-
+	this->create(m_vecMeleeJump[m_indexMeleeJump]);
+	if (++m_indexMeleeJump > MAX_INDEX_MELEE_JUMP)
+	{
+		m_indexMeleeJump = 0;
+	}
 }
 
+const int MAX_INDEX_SHOOT_JUMP = 4;
 /*virtual*/ void Robot::ShootJump()
 {
-
+	this->create(m_vecShootJump[m_indexShootJump]);
+	if (++m_indexShootJump > MAX_INDEX_SHOOT_JUMP)
+	{
+		m_indexShootJump = 0;
+	}
 }
 
+const int MAX_INDEX_SHOOT_RUN = 8;
 /*virtual*/ void Robot::ShootRun()
 {
+	this->create(m_vecShootRun[m_indexShootRun]);
+	if (++m_indexShootRun > MAX_INDEX_SHOOT_RUN)
+	{
+		m_indexShootRun = 0;
+	}
+}
 
+const int MAX_INDEX_SHOOT = 3;
+/*virtual*/ void Robot::Shoot()
+{
+	this->create(m_vecShoot[m_indexShoot]);
+	if (++m_indexShoot > MAX_INDEX_SHOOT)
+	{
+		m_indexShoot = 0;
+	}
 }
 
 Robot::~Robot()

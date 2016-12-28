@@ -37,49 +37,69 @@ void Crocodile::LoadNameSprites()
 	m_vecSlide.push_back(PATH_TO_RESOURCES + "/Heroes/Crocodile/Slide/Slide_1");
 }
 
-/*virtual*/ void Crocodile::Run()
+const int MAX_INDEX_SHOOT = 2;
+/*virtual*/ void Crocodile::Shoot()
 {
-
+	this->create(m_vecShoot[m_indexShoot]);
+	if (++m_indexShoot > MAX_INDEX_SHOOT)
+	{
+		m_indexShoot = 0;
+	}
 }
 
-/*virtual*/ void Crocodile::Melee()
+const int MAX_INDEX_DIZZY = 2;
+/*virtual*/ void Crocodile::Dizzy()
 {
+	this->create(m_vecDizzy[m_indexDizzy]);
+	if (++m_indexDizzy > MAX_INDEX_DIZZY)
+	{
+		m_indexDizzy = 0;
+	}
+}
 
+const int MAX_INDEX_RUN = 4;
+/*virtual*/ void Crocodile::Run()
+{
+	this->create(m_vecRun[m_indexRun]);
+	if (++m_indexRun > MAX_INDEX_RUN)
+	{
+		m_indexRun = 0;
+	}
 }
 
 /*virtual*/ void Crocodile::Slide()
 {
-
+	this->create(m_vecSlide[0]);
 }
 
+const int MAX_INDEX_DEAD = 2;
 /*virtual*/ void Crocodile::Dead()
 {
-
+	this->create(m_vecDead[m_indexDead]);
+	if (++m_indexDead > MAX_INDEX_DEAD)
+	{
+		m_indexDead = 0;
+	}
 }
 
+const int MAX_INDEX_IDLE = 2;
 /*virtual*/ void Crocodile::Idle()
 {
-
+	this->create(m_vecIdle[m_indexIdle]);
+	if (++m_indexIdle > MAX_INDEX_IDLE)
+	{
+		m_indexIdle = 0;
+	}
 }
 
-/*virtual*/ void Crocodile::MoveUp()
+const int MAX_INDEX_JUMP = 2;
+/*virtual*/ void Crocodile::Jump()
 {
-
-}
-
-/*virtual*/ void Crocodile::MoveDown()
-{
-
-}
-
-/*virtual*/ void Crocodile::MoveRight()
-{
-
-}
-
-/*virtual*/ void Crocodile::MoveLeft()
-{
-
+	this->create(m_vecJump[m_indexJump]);
+	if (++m_indexJump > MAX_INDEX_JUMP)
+	{
+		m_indexJump = 0;
+	}
 }
 
 Crocodile::~Crocodile()

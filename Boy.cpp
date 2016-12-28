@@ -24,6 +24,7 @@ Boy::Boy(const Boy& i_Boy)
 }
 
 const int SPRITES_NINE = 9;
+const int MAX_INDEX = 8;
 
 void Boy::LoadNameSprites()
 {
@@ -40,54 +41,62 @@ void Boy::LoadNameSprites()
 
 /*virtual*/ void Boy::Run()
 {
-
+	this->create(m_vecRun[m_indexRun]);
+	if (++m_indexRun > MAX_INDEX)
+	{
+		m_indexRun = 0;
+	}
 }
 
 /*virtual*/ void Boy::Melee()
 {
-
+	this->create(m_vecMelee[m_indexMelee]);
+	if (++m_indexMelee > MAX_INDEX)
+	{
+		m_indexMelee = 0;
+	}
 }
 
 /*virtual*/ void Boy::Slide()
 {
-
+	this->create(m_vecSlide[m_indexSlide]);
+	if (++m_indexSlide > MAX_INDEX)
+	{
+		m_indexSlide = 0;
+	}
 }
 
 /*virtual*/ void Boy::Dead()
 {
-
+	this->create(m_vecDead[m_indexDead]);
+	if (++m_indexDead > MAX_INDEX)
+	{
+		m_indexDead = 0;
+	}
 }
 
 /*virtual*/ void Boy::Idle()
 {
-
+	this->create(m_vecIdle[m_indexIdle]);
+	if (++m_indexIdle > MAX_INDEX)
+	{
+		m_indexIdle = 0;
+	}
 }
 
-/*virtual*/ void Boy::MoveUp()
+/*virtual*/ void Boy::Jump()
 {
-
-}
-
-/*virtual*/ void Boy::MoveDown()
-{
-
-}
-
-/*virtual*/ void Boy::MoveRight()
-{
-
-}
-
-/*virtual*/ void Boy::MoveLeft()
-{
-
+	this->create(m_vecJump[m_indexJump]);
+	if (++m_indexJump > MAX_INDEX)
+	{
+		m_indexJump = 0;
+	}
 }
 
 /*virtual*/ void Boy::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
 
 }
-
 
 Boy::~Boy()
 {

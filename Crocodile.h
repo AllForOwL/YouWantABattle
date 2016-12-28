@@ -13,7 +13,7 @@ using std::vector;
 class Weapon;
 class ManagerComponent;
 
-class Crocodile : public Weapon
+class Crocodile : public Warrior
 {
 public:
 	Crocodile();
@@ -26,12 +26,10 @@ public:
 	virtual void Slide();
 	virtual void Dead();
 	virtual void Idle();
-	virtual void MoveUp();
-	virtual void MoveDown();
-	virtual void MoveRight();
-	virtual void MoveLeft();
+	virtual void Jump();
 	// not clean
 	virtual void Dizzy();
+	virtual void Shoot();
 
 	// below function for skills
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
@@ -45,14 +43,11 @@ public:
 	void LoadNameSprites();
 
 private:
-	vector<string>	m_vecDead;
-	vector<string>	m_vecIdle;
-	vector<string>	m_vecMelee;
 	vector<string>	m_vecShoot;
-	vector<string>	m_vecJump;
-	vector<string>	m_vecRun;
-	vector<string>	m_vecSlide;
 	vector<string>	m_vecDizzy;
+
+	int m_indexDizzy;
+	int m_indexShoot;
 };
 
 #endif 

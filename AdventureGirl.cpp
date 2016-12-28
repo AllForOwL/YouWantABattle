@@ -65,54 +65,74 @@ void AdventureGirl::LoadNameSprites()
 	}
 }
 
+const int MAX_INDEX_RUN = 7;
 /*virtual*/ void AdventureGirl::Run()
 {
-
+	this->create(m_vecRun[m_indexRun]);
+	if (++m_indexRun > MAX_INDEX_RUN)
+	{
+		m_indexRun = 0;
+	}
 }
 
+const int MAX_INDEX_MELEE = 6;
 /*virtual*/ void AdventureGirl::Melee()
 {
-
+	this->create(m_vecMelee[m_indexMelee]);
+	if (++m_indexMelee > MAX_INDEX_MELEE)
+	{
+		m_indexMelee = 0;
+	}
 }
 
+const int MAX_INDEX_SLIDE = 4;
 /*virtual*/ void AdventureGirl::Slide()
 {
-
+	this->create(m_vecSlide[m_indexSlide]);
+	if (++m_indexRun > MAX_INDEX_SLIDE)
+	{
+		m_indexSlide = 0;
+	}
 }
 
+const int MAX_INDEX_DEAD = 9;
 /*virtual*/ void AdventureGirl::Dead()
 {
-
+	this->create(m_vecDead[m_indexDead]);
+	if (++m_indexRun > MAX_INDEX_DEAD)
+	{
+		m_indexDead = 0;
+	}
 }
 
+const int MAX_INDEX_IDLE = 9;
 /*virtual*/ void AdventureGirl::Idle()
 {
-
+	this->create(m_vecIdle[m_indexIdle]);
+	if (++m_indexRun > MAX_INDEX_IDLE)
+	{
+		m_indexIdle = 0;
+	}
 }
 
-/*virtual*/ void AdventureGirl::MoveUp()
+const int MAX_INDEX_JUMP = 9;
+/*virtual*/ void AdventureGirl::Jump()
 {
-
+	this->create(m_vecJump[m_indexJump]);
+	if (++m_indexRun > MAX_INDEX_JUMP)
+	{
+		m_indexRun = 0;
+	}
 }
 
-/*virtual*/ void AdventureGirl::MoveDown()
-{
-
-}
-
-/*virtual*/ void AdventureGirl::MoveRight()
-{
-
-}
-
-/*virtual*/ void AdventureGirl::MoveLeft()
-{
-
-}
-
+const int MAX_INDEX_SHOOT = 2;
 /*virtual*/ void AdventureGirl::Shoot()
 {
-
+	this->create(m_vecShoot[m_indexShoot]);
+	if (++m_indexRun > MAX_INDEX_SHOOT)
+	{
+		m_indexShoot = 0;
+	}
 }
 
 

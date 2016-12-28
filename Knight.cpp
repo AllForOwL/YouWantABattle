@@ -24,6 +24,7 @@ Knight::Knight(const Knight& i_Knight)
 }
 
 const int SPRITES_TEN = 10;
+const int MAX_INDEX = 9;
 
 void Knight::LoadNameSprites()
 {
@@ -41,64 +42,85 @@ void Knight::LoadNameSprites()
 	}
 }
 
-/*virtual*/ void Knight::Run()
+void Knight::Shoot()
 {
-
+	this->create(m_vecShoot[m_indexShoot]);
+	if (++m_indexShoot > MAX_INDEX)
+	{
+		m_indexShoot = 0;
+	}
 }
 
-/*virtual*/ void Knight::Melee()
+/*virtual*/ void Knight::Run()
 {
-
+	this->create(m_vecRun[m_indexRun]);
+	if (++m_indexRun > MAX_INDEX)
+	{
+		m_indexRun = 0;
+	}
 }
 
 /*virtual*/ void Knight::Slide()
 {
-
+	this->create(m_vecSlide[m_indexSlide]);
+	if (++m_indexSlide > MAX_INDEX)
+	{
+		m_indexSlide = 0;
+	}
 }
 
 /*virtual*/ void Knight::Dead()
 {
-
+	this->create(m_vecDead[m_indexDead]);
+	if (++m_indexDead > MAX_INDEX)
+	{
+		m_indexDead = 0;
+	}
 }
 
 /*virtual*/ void Knight::Idle()
 {
-
+	this->create(m_vecIdle[m_indexIdle]);
+	if (++m_indexIdle > MAX_INDEX)
+	{
+		m_indexIdle = 0;
+	}
 }
 
-/*virtual*/ void Knight::MoveUp()
+/*virtual*/ void Knight::Jump()
 {
-
-}
-
-/*virtual*/ void Knight::MoveDown()
-{
-
-}
-
-/*virtual*/ void Knight::MoveRight()
-{
-
-}
-
-/*virtual*/ void Knight::MoveLeft()
-{
-
+	this->create(m_vecJump[m_indexJump]);
+	if (++m_indexJump > MAX_INDEX)
+	{
+		m_indexJump = 0;
+	}
 }
 
 /*virtual*/ void Knight::Attack()
 {
-
+	this->create(m_vecAttack[m_indexAttack]);
+	if (++m_indexAttack > MAX_INDEX)
+	{
+		m_indexAttack = 0;
+	}
 }
 
 /*virtual*/ void Knight::AttackJump()
 {
-
+	this->create(m_vecAttackJump[m_indexAttackJump]);
+	if (++m_indexAttackJump > MAX_INDEX)
+	{
+		m_indexAttackJump = 0;
+	}
 }
 
 /*virtual*/ void Knight::Walk()
 {
-
+	this->create(m_vecWalk[m_indexWalk]);
+	if (++m_indexWalk > MAX_INDEX)
+	{
+		m_indexWalk = 0;
+	}
 }
 
 /*virtual*/ void Knight::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)

@@ -14,7 +14,7 @@ class Weapon;
 class ManagerComponent;
 class GameScene;
 
-class Robot : public Weapon
+class Robot : public Warrior
 {
 public:
 	Robot();
@@ -27,15 +27,12 @@ public:
 	virtual void Slide();
 	virtual void Dead();
 	virtual void Idle();
-	virtual void MoveUp();
-	virtual void MoveDown();
-	virtual void MoveRight();
-	virtual void MoveLeft();
+	virtual void Jump();
 	// not clean
 	virtual void MeleeJump();
 	virtual void ShootJump();
+	virtual void Shoot();
 	virtual void ShootRun();
-
 
 	// below function for skills
 	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill);
@@ -49,17 +46,15 @@ public:
 	void LoadNameSprites();
 
 private:
-	vector<string>	m_vecDead;
-	vector<string>	m_vecIdle;
-	vector<string>	m_vecMelee;
-	vector<string>	m_vecJump;
-	vector<string>	m_vecRun;
-	vector<string>	m_vecSlide;
 	vector<string>	m_vecMeleeJump;
 	vector<string>	m_vecShoot;
 	vector<string>	m_vecShootJump;
 	vector<string>	m_vecShootRun;
 
+	int m_indexMeleeJump;
+	int m_indexShoot;
+	int m_indexShootJump;
+	int m_indexShootRun;
 };
 
 #endif 
