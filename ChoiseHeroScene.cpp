@@ -27,7 +27,7 @@ bool ChoiseHeroScene::init()
 
 	LoadMenuItems();
 	CCMenu* testMenu = CCMenu::createWithArray(m_menuItems);
-	testMenu->alignItemsInColumns(2, 2);
+	testMenu->alignItemsInColumns(1, 1, 2, 1, 1);
 	testMenu->setPosition(m_visiblSize.width / 2, m_visiblSize.height / 2);
 	this->addChild(testMenu);
 
@@ -59,10 +59,12 @@ void ChoiseHeroScene::LoadMenuItems()
 {
 	vector<string> _filename;
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/AdventureGirl.png");
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Boy.png");
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Crocodile.png");
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Knight.png");
 	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/NinjaGirl.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Octopus.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Yeti.png");
-	
+	_filename.push_back(PATH_TO_RESOURCES + "/MenuItems/Robot.png");
+
 	for (int i = 0; i < _filename.size(); i++)
 	{
 		m_menuItems.pushBack(MenuItemImage::create(_filename[i], _filename[i], CC_CALLBACK_1(ChoiseHeroScene::menuChoiseHeroCallback, this)));

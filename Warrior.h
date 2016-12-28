@@ -192,25 +192,25 @@ public:
 	}
 
 	// function act hero
-	virtual void Shoot();
-	virtual void Dizzy();
-	virtual void Attack();
-	virtual void AttackJump();
-	virtual void Walk();
-	virtual void Throw();
-	virtual void ThrowJump();
-	virtual void MeleeJump();
-	virtual void ShootJump();
-	virtual void RunShoot();
-	virtual void Run()		= 0;
-	virtual void Melee()	= 0;
+	virtual void Melee() {};
+	virtual void Shoot() {};
+	virtual void Dizzy() {};
+	virtual void Attack() {};
+	virtual void AttackJump() {};
+	virtual void Walk() {};
+	virtual void Throw() {};
+	virtual void ThrowJump() {};
+	virtual void MeleeJump() {};
+	virtual void ShootJump() {};
+	virtual void RunShoot() {};
+	virtual void Run()		= 0; 
 	virtual void Slide()	= 0;
 	virtual void Dead()		= 0;
 	virtual void Idle()		= 0;
 	virtual void Jump()		= 0;
 
 	// function for skills
-	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) = 0;
+	virtual void ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill) {};
 	virtual void DeleteImageSkills(GameScene& i_gameScene) {};
 	virtual void ShowImageSkills(GameScene& i_gameScene){};
 	virtual bool DetermineSkill(ManagerComponent& i_manager){ return false; };

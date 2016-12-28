@@ -131,58 +131,7 @@ void NinjaGirl::LoadNameSprites()
 
 /*virtual*/ void NinjaGirl::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
-	switch (i_numberSkill)
-	{
-		case Skills::JUMP_AND_HIT:
-		{
-			if (m_positionBegin == Point::ZERO && m_positionEnd == Point::ZERO)
-			{
-				m_positionBegin = this->getPosition();
-				m_positionEnd = i_manager.m_enemy->getPosition();
-				m_positionEnd.x -= i_manager.m_enemy->getBoundingBox().size.width;
-				m_distanceToEnemy = m_positionEnd.x - m_positionBegin.x;
-			}
-			
-			if (!SkillJumpAndHit(i_manager))
-			{
-				this->SetState(Warrior::State::NOTHING);
-			}
-
-			break;
-		}
-	default:
-		break;
-	}
-}
-
-/*virtual*/ void NinjaGirl::DeleteImageSkills(GameScene& i_gameScene)
-{
-	for (int i = 0; i < m_vecImageSkills.size(); i++)
-	{
-		i_gameScene.removeChild(m_vecImageSkills[i], true);
-	}
-	m_vecImageSkills.clear();
-}
-
-/*virtual*/ void NinjaGirl::ShowImageSkills(GameScene& i_gameScene)
-{
-	m_vecImageSkills.push_back(Sprite::create(PATH_TO_RESOURCES + "/Skills/NinjaGirl/JumpAndHit.png"));
-	m_vecImageSkills[INDEX_JUMP_AND_HIT]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecImageSkills[INDEX_JUMP_AND_HIT]->getContentSize().width / 15,
-		ChoiseHeroScene::m_visiblSize.height / m_vecImageSkills[INDEX_JUMP_AND_HIT]->getContentSize().height / 15);
-	m_vecImageSkills[INDEX_JUMP_AND_HIT]->setPosition(this->getPositionX(), this->getPositionY() + this->getContentSize().height);
-
-	i_gameScene.addChild(m_vecImageSkills[0]);
-}
-
-/*virtual*/ bool NinjaGirl::DetermineSkill(ManagerComponent& i_manager)
-{
-	if (m_vecImageSkills[INDEX_JUMP_AND_HIT]->getBoundingBox().containsPoint(i_manager.m_inputHero->GetLocationTouch()))
-	{
-		SetSkill(INDEX_JUMP_AND_HIT);
-		return true;
-	}
-
-	return false;
+	
 }
 
 NinjaGirl::~NinjaGirl()

@@ -177,27 +177,7 @@ bool AdventureGirl::SkillQuicklyHitRobot(ManagerComponent& i_manager)
 
 /*virtual*/ void AdventureGirl::ExecuteSkill(ManagerComponent& i_manager, int i_numberSkill)
 {
-	switch (i_numberSkill)
-	{
-		case Skills::QUICKLY_HIT_Robot:
-		{
-			if (m_positionBegin == Point::ZERO && m_positionEnd == Point::ZERO)
-			{
-				m_positionBegin = this->getPosition();
-				m_positionEnd = this->getPosition();
-				m_positionEnd.x -= i_manager.m_enemy->getBoundingBox().size.width;
-			}
-			
-			if (!SkillQuicklyHitRobot(i_manager))
-			{
-				this->SetState(Warrior::State::NOTHING);
-			}
-
-			break;
-		}
-	default:
-		break;
-	}
+	
 }
 
 /*virtual*/ bool AdventureGirl::DetermineSkill(ManagerComponent& i_manager)

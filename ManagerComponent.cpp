@@ -3,18 +3,8 @@
 #include "Boy.h"
 #include "NinjaGirl.h"
 #include "Knight.h"
-#include "Octopus.h"
-#include "Paladin.h"
-#include "Wizard.h"
-#include "Yeti.h"
-#include "Arbalest.h"
 #include "Crocodile.h"
 #include "Robot.h"
-#include "Saber.h"
-#include "Sledgehammer.h"
-#include "Stick.h"
-#include "Sword.h"
-#include "Tentacles.h"
 #include "Bullet.h"
 #include "Weapon.h"
 #include "Warrior.h"
@@ -27,21 +17,14 @@
 #include "Bullet.h"
 
 /*	Tasks on 25:12:2016
-		+ NinjaGirl		--- jump and hit Crocodile;	// derivate way on second part
-		+- octupus	--- hit tentacles;			// line down on enemy
-			- delete tentacles;
-		- yeti		--- throw Crocodile on enemy;					// opacity or setcolor white
 */
 
-const int INDEX_AdventureGirl	= 0;
-const int INDEX_NinjaGirl	= 1;
-const int INDEX_OCTOPUS = 2;
-const int INDEX_YETI	= 3; 
-
-const int INDEX_Boy	= 0;
-const int INDEX_KNIGHT	= 1;
-const int INDEX_PALADIN = 2;
-const int INDEX_WIZARD	= 3;
+const int INDEX_ADVENTURE_GIRL	= 0;
+const int INDEX_BOY				= 1;
+const int INDEX_CROCODILE		= 2;
+const int INDEX_KNIGHT			= 3;
+const int INDEX_NINJA_GIRL		= 4;
+const int INDEX_ROBOT			= 5;
 
 
 ManagerComponent::ManagerComponent(GameScene& i_gameScene, int i_indexHero) : m_numberHero(i_indexHero)
@@ -65,32 +48,40 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 {
 	switch (m_numberHero)
 	{
-		case INDEX_AdventureGirl:
+		case INDEX_ADVENTURE_GIRL:
 		{
-			m_hero			= new AdventureGirl();			// бик
-			m_weaponHero	= new Robot();		// роги
+			m_hero = new AdventureGirl();			
 
 			break;
 		}
-		case INDEX_NinjaGirl:
+		case INDEX_BOY:
 		{
-			m_hero			= new NinjaGirl();				// г≥гант
-			m_weaponHero	= new Sledgehammer();	// кувалда
+			m_hero	= new Boy();				
 
 			break;
 		}
-		case INDEX_OCTOPUS:
+		case INDEX_CROCODILE:
 		{
-			m_hero			= new Octopus();				// восьмин≥г
-			m_weaponHero	= new Tentacles();		// щупальц€
+			m_hero	= new Crocodile();				
 
 			break;
 		}
-		case INDEX_YETI:
+		case INDEX_KNIGHT:
 		{
-			m_hero			= new Yeti();				// йЇт≥
-			m_weaponHero	= new Crocodile();		// дубина
+			m_hero	= new Knight();				
 
+			break;
+		}
+		case INDEX_NINJA_GIRL:
+		{
+			m_hero = new NinjaGirl();
+
+			break;
+		}
+		case INDEX_ROBOT:
+		{
+			m_hero = new Robot();				
+							
 			break;
 		}
 	default:
@@ -106,7 +97,7 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 	m_hero->setPhysicsBody(_physicBody);
 
 	i_gameScene.addChild(m_hero);
-	i_gameScene.addChild(m_weaponHero);
+	//i_gameScene.addChild(m_weaponHero);
 }
 
 void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
@@ -116,32 +107,40 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 
 	switch (m_numberHero)
 	{
-		case INDEX_Boy:
+		case INDEX_ADVENTURE_GIRL:
 		{
-			m_enemy			= new Boy();		// стр≥лець
-			m_weaponEnemy	= new Arbalest();	// лук
+			m_enemy = new AdventureGirl();			
+
+			break;
+		}
+		case INDEX_BOY:
+		{
+			m_enemy	= new Boy();				
+
+			break;
+		}
+		case INDEX_CROCODILE:
+		{
+			m_enemy	= new Crocodile();				
 
 			break;
 		}
 		case INDEX_KNIGHT:
 		{
-			m_enemy			= new Knight();		// лицар
-			m_weaponEnemy	= new Sword();		// меч
+			m_enemy	= new Knight();				
 
 			break;
 		}
-		case INDEX_PALADIN:
+		case INDEX_NINJA_GIRL:
 		{
-			m_enemy			= new Paladin();		// палад≥н		
-			m_weaponEnemy	= new Saber();			// шпага
-			
+			m_enemy = new NinjaGirl();
+
 			break;
 		}
-		case INDEX_WIZARD:
+		case INDEX_ROBOT:
 		{
-			m_enemy			= new Wizard();			// чар≥вник
-			m_weaponEnemy	= new Stick();			// шпага
-
+			m_enemy = new Robot();				
+							
 			break;
 		}
 	default:
@@ -157,7 +156,7 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 	m_enemy->setPhysicsBody(_physicBody);
 
 	i_gameScene.addChild(m_enemy);
-	i_gameScene.addChild(m_weaponEnemy);
+//	i_gameScene.addChild(m_weaponEnemy);
 }
 
 void ManagerComponent::Update(GameScene& i_gameScene)
@@ -165,8 +164,8 @@ void ManagerComponent::Update(GameScene& i_gameScene)
 	m_hero->Update(*this, i_gameScene);
 	m_enemy->Update(*this, i_gameScene);
 
-	m_weaponHero->Update(*this, i_gameScene);
-	m_weaponEnemy->Update(*this, i_gameScene);
+	//m_weaponHero->Update(*this, i_gameScene);
+	//m_weaponEnemy->Update(*this, i_gameScene);
 
 	m_inputHero->Update(*this);
 	m_inputEnemy->Update(*this);

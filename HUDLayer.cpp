@@ -86,7 +86,7 @@ bool HUDLayer::DetermineEvent(ManagerComponent& i_manager)
 		i_manager.m_hero->SetState(Warrior::State::JUMP);
 		return true;
 	}
-	else if (m_rectMove[INDEX_PRESS_DOWN].containsPoint(_locationTouchHero))
+	/*else if (m_rectMove[INDEX_PRESS_DOWN].containsPoint(_locationTouchHero))
 	{
 		i_manager.m_hero->SetState(Warrior::State::CROUCH);
 		return true;
@@ -105,7 +105,7 @@ bool HUDLayer::DetermineEvent(ManagerComponent& i_manager)
 	{
 		i_manager.m_hero->SetState(Warrior::State::FIRE);
 		return true;
-	}
+	}*/
 	return false;
 }
 
