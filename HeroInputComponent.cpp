@@ -27,19 +27,19 @@ void HeroInputComponent::SetZeroLocation()
 
 /*virtual*/ bool HeroInputComponent::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	m_locationTouch = touch->getLocation();
+	//m_locationTouch = touch->getLocation();
 
 	return true;
 }
 
 /*virtual*/ void HeroInputComponent::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-
+	m_locationTouch = touch->getLocation();
 }
 
 /*virtual*/ void HeroInputComponent::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-
+	
 }
 
 HeroInputComponent::~HeroInputComponent()

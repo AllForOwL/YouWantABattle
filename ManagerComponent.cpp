@@ -88,7 +88,7 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 		break;
 	}
 
-	m_hero->setPosition(m_hero->getBoundingBox().size.width, 
+	m_hero->setPosition(m_hero->getBoundingBox().size.width * 2, 
 		m_hero->getBoundingBox().size.height);
 
 	auto _physicBody = PhysicsBody::createBox(m_hero->getContentSize());
@@ -103,7 +103,7 @@ void ManagerComponent::CreateHero(GameScene& i_gameScene)
 void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 {
 	srand(time(0));
-	m_numberHero = /*rand() % 3 + */0;
+	m_numberHero = rand() % 3 + 0;
 
 	switch (m_numberHero)
 	{
@@ -147,7 +147,7 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 		break;
 	}
 
-	m_enemy->setPosition(ChoiseHeroScene::m_visiblSize.width - m_enemy->getBoundingBox().size.width * 2,
+	m_enemy->setPosition(ChoiseHeroScene::m_visiblSize.width - m_enemy->getBoundingBox().size.width * 5,
 		m_enemy->getBoundingBox().size.height);
 
 	auto _physicBody = PhysicsBody::createBox(m_enemy->getContentSize());
@@ -155,14 +155,14 @@ void ManagerComponent::CreateEnemy(GameScene& i_gameScene)
 	_physicBody->setTag(TAG_ENEMY);
 	m_enemy->setPhysicsBody(_physicBody);
 
-	i_gameScene.addChild(m_enemy);
+	//i_gameScene.addChild(m_enemy);
 //	i_gameScene.addChild(m_weaponEnemy);
 }
 
 void ManagerComponent::Update(GameScene& i_gameScene)
 {
 	m_hero->Update(*this, i_gameScene);
-	m_enemy->Update(*this, i_gameScene);
+	//m_enemy->Update(*this, i_gameScene);
 
 	//m_weaponHero->Update(*this, i_gameScene);
 	//m_weaponEnemy->Update(*this, i_gameScene);

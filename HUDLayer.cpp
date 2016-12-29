@@ -18,89 +18,67 @@ bool HUDLayer::init()
 	}
 
 	AddSpritesMoveHero();
+	m_state = State::DETERMINE_TOUCH;
 
 	return true;
 }
 
 void HUDLayer::Update(ManagerComponent& i_manager)
 {
-	if (DetermineEvent(i_manager))
+	switch (m_state)
 	{
-		i_manager.m_inputHero->SetZeroLocation();
+		case State::MOVE_BUTTON_TO_TOUCH:
+		{
+			if (i_manager.m_inputHero->GetLocationTouch() != Point::ZERO)
+			{
+				m_positionPrevious = m_btnMoveHero->getPosition();
+				m_btnMoveHero->setPosition(i_manager.m_inputHero->GetLocationTouch());
+
+				if (!m_rctMoveButton->containsPoint(i_manager.m_inputHero->GetLocationTouch()))
+				{
+					m_btnMoveHero->setPosition(m_positionBegin);
+					m_state = State::DETERMINE_TOUCH;
+				}
+			}
+
+			break;
+		}
+		case State::DETERMINE_TOUCH:
+		{
+			if (DetermineEvent(i_manager))
+			{
+				i_manager.m_inputHero->SetZeroLocation();
+			}
+
+			break;
+		}
 	}
 }
 
 void HUDLayer::AddSpritesMoveHero()
 {
-	vector<string> _filename;
-	_filename.push_back(PATH_TO_RESOURCES + "/UI/Move/PressDown.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/UI/Move/PressUp.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/UI/Move/PressLeft.png");
-	_filename.push_back(PATH_TO_RESOURCES + "/UI/Move/PressRight.png");
+	m_btnMoveHero = Sprite::create(PATH_TO_RESOURCES + "/MenuItems/SmallRedButton.png");
+	m_btnMoveHero->setScale(ChoiseHeroScene::m_visiblSize.width / m_btnMoveHero->getContentSize().width / 10,
+		ChoiseHeroScene::m_visiblSize.height / m_btnMoveHero->getContentSize().height / 6);
+	m_positionBegin = Point(m_btnMoveHero->getBoundingBox().size.width * 1.5,
+		m_btnMoveHero->getBoundingBox().size.height * 1.5);
+	m_btnMoveHero->setPosition(m_positionBegin);
+	this->addChild(m_btnMoveHero);
 
-	for (int i = 0; i < _filename.size(); i++)
-	{
-		m_vecMove.push_back(Sprite::create(_filename[i]));
-		this->addChild(m_vecMove[i]);
-	}
-
-	m_vecMove[INDEX_PRESS_DOWN]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecMove[INDEX_PRESS_DOWN]->getContentSize().width / 20,
-		ChoiseHeroScene::m_visiblSize.height / m_vecMove[INDEX_PRESS_DOWN]->getContentSize().height / 16);
-
-	m_vecMove[INDEX_PRESS_UP]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecMove[INDEX_PRESS_UP]->getContentSize().width / 20,
-		ChoiseHeroScene::m_visiblSize.height / m_vecMove[INDEX_PRESS_UP]->getContentSize().height / 16);
-
-	m_vecMove[INDEX_PRESS_LEFT]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecMove[INDEX_PRESS_LEFT]->getContentSize().width / 16,
-		ChoiseHeroScene::m_visiblSize.height / m_vecMove[INDEX_PRESS_LEFT]->getContentSize().height / 20);
-
-	m_vecMove[INDEX_PRESS_RIGHT]->setScale(ChoiseHeroScene::m_visiblSize.width / m_vecMove[INDEX_PRESS_RIGHT]->getContentSize().width / 16,
-		ChoiseHeroScene::m_visiblSize.height / m_vecMove[INDEX_PRESS_RIGHT]->getContentSize().height / 20);
-
-	Size _sizePressVertical		= m_vecMove[INDEX_PRESS_DOWN]->getBoundingBox().size;
-	Size _sizePressHorizontal	= m_vecMove[INDEX_PRESS_LEFT]->getBoundingBox().size; 
-
-	m_vecMove[INDEX_PRESS_DOWN]->setPosition(ChoiseHeroScene::m_visiblSize.width - (_sizePressHorizontal.width + _sizePressVertical.height / 2),
-		_sizePressVertical.height / 2);
-		
-	m_vecMove[INDEX_PRESS_UP]->setPosition(ChoiseHeroScene::m_visiblSize.width - (_sizePressHorizontal.width + _sizePressVertical.height / 2),
-		_sizePressVertical.height + _sizePressVertical.height / 2);
-
-	m_vecMove[INDEX_PRESS_LEFT]->setPosition(m_vecMove[INDEX_PRESS_DOWN]->getPositionX() -  _sizePressHorizontal.width / 2,
-		_sizePressVertical.height);
-
-	m_vecMove[INDEX_PRESS_RIGHT]->setPosition(m_vecMove[INDEX_PRESS_DOWN]->getPositionX() + _sizePressHorizontal.width / 2,
-		_sizePressVertical.height);
-
-	for (int i = 0; i < _filename.size(); i++)
-	{
-		m_rectMove.push_back(m_vecMove[i]->getBoundingBox());
-	}
+	m_rctMoveButton = new Rect(m_btnMoveHero->getPositionX() - m_btnMoveHero->getBoundingBox().size.width,
+		m_btnMoveHero->getPositionY() - m_btnMoveHero->getBoundingBox().size.height, m_btnMoveHero->getBoundingBox().size.width * 2,
+		m_btnMoveHero->getBoundingBox().size.height * 2);
 }
 
 bool HUDLayer::DetermineEvent(ManagerComponent& i_manager)
 {
 	Point _locationTouchHero = i_manager.m_inputHero->GetLocationTouch();
 
-	if (m_rectMove[INDEX_PRESS_UP].containsPoint(_locationTouchHero))
+	if (m_btnMoveHero->getBoundingBox().containsPoint(_locationTouchHero))
 	{
-		i_manager.m_hero->SetState(Warrior::State::JUMP);
+		m_state = State::MOVE_BUTTON_TO_TOUCH;
 		return true;
 	}
-	/*else if (m_rectMove[INDEX_PRESS_DOWN].containsPoint(_locationTouchHero))
-	{
-		i_manager.m_hero->SetState(Warrior::State::CROUCH);
-		return true;
-	}
-	else if (m_rectMove[INDEX_PRESS_LEFT].containsPoint(_locationTouchHero))
-	{
-		i_manager.m_hero->SetState(Warrior::State::MOVE_LEFT);
-		return true;
-	}
-	else if (m_rectMove[INDEX_PRESS_RIGHT].containsPoint(_locationTouchHero))
-	{
-		i_manager.m_hero->SetState(Warrior::State::MOVE_RIGHT);
-		return true;
-	}*/
 	else if (i_manager.m_hero->getBoundingBox().containsPoint(_locationTouchHero))
 	{
 		i_manager.m_hero->SetState(Warrior::State::RUN);

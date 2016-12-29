@@ -13,6 +13,12 @@ using std::string;
 class HUDLayer : public cocos2d::Layer
 {
 public:
+	enum State
+	{
+		MOVE_BUTTON_TO_TOUCH,
+		DETERMINE_TOUCH
+	};
+
 	virtual bool init();
 
 	~HUDLayer();
@@ -26,8 +32,14 @@ public:
 	bool DetermineEvent(ManagerComponent& i_manager);
 
 private:
+	State	m_state;
 	vector<Sprite*>	m_vecMove;
 	vector<Rect>	m_rectMove;
+	
+	Sprite*	m_btnMoveHero;
+	Rect*	m_rctMoveButton;
+	Point	m_positionPrevious;
+	Point	m_positionBegin;
 };
 
 #endif // __HUD_LAYER_H__

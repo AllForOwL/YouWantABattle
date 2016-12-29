@@ -55,6 +55,8 @@ bool GameScene::init()
 
 	auto _touchListener = EventListenerTouchOneByOne::create();
 	_touchListener->onTouchBegan = CC_CALLBACK_2(HeroInputComponent::onTouchBegan, m_manager->m_inputHero);
+	_touchListener->onTouchMoved = CC_CALLBACK_2(HeroInputComponent::onTouchMoved, m_manager->m_inputHero);
+	_touchListener->onTouchEnded = CC_CALLBACK_2(HeroInputComponent::onTouchEnded, m_manager->m_inputHero);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(_touchListener, this);
 
 	m_timeUpdate = 0.0001;
